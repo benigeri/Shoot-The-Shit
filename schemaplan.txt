@@ -1,0 +1,27 @@
+MODEL
+  musing
+    has_many: comments, votes
+    belongs_to: user
+
+  user
+    has_many: musings, comments, votes
+    belongs_to: none
+    migrate:
+      string email
+      string username
+      // password/auth crap with devise
+      string name
+      string bio
+      string fb profile link
+      string twitter profile link
+  // use devise to do all the password shit
+
+  vote
+    has_many: none
+    belongs_to: mus
+
+  comment
+    has_many: none
+    belongs_to: user, musing
+VIEWS
+CONTROLLERS
