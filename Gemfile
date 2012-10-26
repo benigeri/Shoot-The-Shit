@@ -22,7 +22,7 @@ end
 
 gem 'devise'
 
-gem 'thin'
+#gem 'thin'
 
 gem 'jquery-rails'
 
