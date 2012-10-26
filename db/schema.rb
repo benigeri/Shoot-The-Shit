@@ -13,6 +13,19 @@
 
 ActiveRecord::Schema.define(:version => 20121026000715) do
 
+  create_table "comments", :force => true do |t|
+    t.string   "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "musings", :force => true do |t|
+    t.string   "title"
+    t.string   "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email"
     t.string   "username"
@@ -35,5 +48,10 @@ ActiveRecord::Schema.define(:version => 20121026000715) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "votes", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end
