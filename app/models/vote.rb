@@ -1,5 +1,6 @@
 class Vote < ActiveRecord::Base
   # attr_accessible :title, :body
-  belongs_to: musing, user
+  belongs_to :musing
+  belongs_to :user
 
 end
