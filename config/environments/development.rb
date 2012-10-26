@@ -34,4 +34,11 @@ ShootTheShit::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # For Devise
+  # Force application not to acess the DB or load models when precompiling your assets
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  ## TODO: we need to do something to set that in production.rb or something
+
 end
