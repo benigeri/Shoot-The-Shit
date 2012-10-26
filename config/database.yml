@@ -43,13 +43,13 @@ test:
   encoding: unicode
   database: Shoot-The-Shit_test
   pool: 5
- username: Shoot-The-Shit
- password:
+  username: Shoot-The-Shit
+  password:
 
 production:
   adapter: postgresql
   encoding: unicode
   database: Shoot-The-Shit_production
   pool: 5
- username: Shoot-The-Shit
- password:
+  username: Shoot-The-Shit
+  password:
