@@ -10,56 +10,86 @@
   <link rel="apple-touch-startup-image" href="startup.png">
   <meta name="apple-mobile-web-app-status-bar-style"
     content="black-translucent" />
-
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script type="text/javascript">
+    function toggleClass(elem) {
+      $("a.pillbox").removeClass("selected");
+      $(elem).addClass("selected");
+    }
+  </script>
 </head>
 <body >
   <div class="secondaryNav">
-  	<div class="pillbox">
-  	  <div class="selected">Recent</div>
-  	  <div>Popular</div>
-  	  <div>Local</div>
-  	</div>
+    <div class="pillbox" align="center">
+      <a href="#" ontouchend="toggleClass(this);" class="pillbox left selected">Recent</a>
+      <a href="#" ontouchend="toggleClass(this);" class="pillbox middle">Popular</a>
+      <a href="#" ontouchend="toggleClass(this);" class="pillbox right">Local</a>
+    </div>
   </div>
   <div class="content">
-    <div class="newButton" id="newMusing">Add New Musing</div>
+  <a href="http://www.stanford.edu/~benigeri/assign4/new.html" class="newMusingButton">Add New Musing</a>
     <ul id="musings">
       <li class="musing">
         <div class="title">50 Shades of Cardinal</div>
         <div class="byline">by <span class="musingAuthor">Viraj Bindra</span>  on <span class="musingDate">10/12</span> in <span class="musingLocation">Stanford</span></div>
-        <div class="musingContent">Tears rushed to Viraj's eyes as he thought about his long-lost lover, Derek. He remembere the nights they used to spend together fucking, and missed the touch of his warm penis across his forehead. It was mas worse by the fact...</div>
+        <div class="musingContent">Tears rushed to Viraj's eyes as he thought about his lost lover, Carl. He remembers holding hands during desperate times, and misses the times they would cuddle in bed...
+        </li>
+      <li class="musing">
+        <div class="title">50 Shades of Cardinal</div>
+        <div class="byline">by <span class="musingAuthor">Viraj Bindra</span>  on <span class="musingDate">10/12</span> in <span class="musingLocation">Stanford</span></div>
+        <div class="musingContent">Tears rushed to Viraj's eyes as he thought about his lost lover, Carl. He remembers holding hands during desperate times, and misses the times they would cuddle in bed...
+</div>
       </li>
       <li class="musing">
         <div class="title">50 Shades of Cardinal</div>
         <div class="byline">by <span class="musingAuthor">Viraj Bindra</span>  on <span class="musingDate">10/12</span> in <span class="musingLocation">Stanford</span></div>
-        <div class="musingContent">Tears rushed to Viraj's eyes as he thought about his long-lost lover, Derek. He remembere the nights they used to spend together fucking, and missed the touch of his warm penis across his forehead. It was mas worse by the fact...</div>
+        <div class="musingContent">Tears rushed to Viraj's eyes as he thought about his lost lover, Carl. He remembers holding hands during desperate times, and misses the times they would cuddle in bed...
+</div>
       </li>
       <li class="musing">
         <div class="title">50 Shades of Cardinal</div>
         <div class="byline">by <span class="musingAuthor">Viraj Bindra</span>  on <span class="musingDate">10/12</span> in <span class="musingLocation">Stanford</span></div>
-        <div class="musingContent">Tears rushed to Viraj's eyes as he thought about his long-lost lover, Derek. He remembere the nights they used to spend together fucking, and missed the touch of his warm penis across his forehead. It was mas worse by the fact...</div>
+        <div class="musingContent">Tears rushed to Viraj's eyes as he thought about his lost lover, Carl. He remembers holding hands during desperate timess, and misses the times they would cuddle in bed...
+</div>
       </li>
       <li class="musing">
         <div class="title">50 Shades of Cardinal</div>
         <div class="byline">by <span class="musingAuthor">Viraj Bindra</span>  on <span class="musingDate">10/12</span> in <span class="musingLocation">Stanford</span></div>
-        <div class="musingContent">Tears rushed to Viraj's eyes as he thought about his long-lost lover, Derek. He remembere the nights they used to spend together fucking, and missed the touch of his warm penis across his forehead. It was mas worse by the fact...</div>
+        <div class="musingContent">Tears rushed to Viraj's eyes as he thought about his lost lover, Carl. He remembers holding hands during desperate times, and misses the times they would cuddle in bed...
+</div>
       </li>
       <li class="musing">
         <div class="title">50 Shades of Cardinal</div>
         <div class="byline">by <span class="musingAuthor">Viraj Bindra</span>  on <span class="musingDate">10/12</span> in <span class="musingLocation">Stanford</span></div>
-        <div class="musingContent">Tears rushed to Viraj's eyes as he thought about his long-lost lover, Derek. He remembere the nights they used to spend together fucking, and missed the touch of his warm penis across his forehead. It was mas worse by the fact...</div>
+        <div class="musingContent">Tears rushed to Viraj's eyes as he thought about his lost lover, Carl. He remembers holding hands during desperate times, and misses the times they would cuddle in bed...</div>
       </li>
       <li class="musing">
         <div class="title">50 Shades of Cardinal</div>
         <div class="byline">by <span class="musingAuthor">Viraj Bindra</span>  on <span class="musingDate">10/12</span> in <span class="musingLocation">Stanford</span></div>
-        <div class="musingContent">Tears rushed to Viraj's eyes as he thought about his long-lost lover, Derek. He remembere the nights they used to spend together fucking, and missed the touch of his warm penis across his forehead. It was mas worse by the fact...</div>
+        <div class="musingContent">Tears rushed to Viraj's eyes as he thought about his lost lover, Carl. He remembers holding hands during desperate times, and misses the times they would cuddle in bed...</div>
+      </li>
+      <li class="musing">
+        <div class="title">50 Shades of Cardinal</div>
+        <div class="byline">by <span class="musingAuthor">Viraj Bindra</span>  on <span class="musingDate">10/12</span> in <span class="musingLocation">Stanford</span></div>
+        <div class="musingContent">Tears rushed to Viraj's eyes as he thought about his lost lover, Carl. He remembers holding hands during desperate times, and misses the times they would cuddle in bed...</div>
+      </li>
+      <li class="musing">
+        <div class="title">50 Shades of Cardinal</div>
+        <div class="byline">by <span class="musingAuthor">Viraj Bindra</span>  on <span class="musingDate">10/12</span> in <span class="musingLocation">Stanford</span></div>
+        <div class="musingContent">Tears rushed to Viraj's eyes as he thought about his lost lover, Carl. He remembers holding hands during desperate times, and misses the times they would cuddle in bed...</div>
+      </li>
+      <li class="musing">
+        <div class="title">50 Shades of Cardinal</div>
+        <div class="byline">by <span class="musingAuthor">Viraj Bindra</span>  on <span class="musingDate">10/12</span> in <span class="musingLocation">Stanford</span></div>
+        <div class="musingContent">Tears rushed to Viraj's eyes as he thought about his lost lover, Carl. He remembers holding hands during desperate times, and misses the times they would cuddle in bed...</div>
       </li>
     </ul>
   </div>
   <nav id="global-navbar">
     <ul id="navbar-list">
-      <li id="musingButton" ><a href="index.html" class="selected">Musings</a></li>
-      <li id="chatButton"><a href="chat.html" >Chat</a></li>
-      <li id="profileButton"><a href="profile.html" >Profile</a></li>
+      <li id="musingButton" ><a href="http://www.stanford.edu/~benigeri/assign4/index.html" class="selected">Musings</a></li>
+      <li id="chatButton"><a href="http://www.stanford.edu/~benigeri/assign4/chat.html" >Chat</a></li>
+      <li id="profileButton"><a href="http://www.stanford.edu/~benigeri/assign4/profile.html" >Profile</a></li>
     </ul>
   </nav>
 </body>
