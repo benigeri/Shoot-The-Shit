@@ -1,4 +1,6 @@
 class MusingsController < ApplicationController
+  before_filter :authenticate_user!, :only => [:create]
+
   def show
     @musing = Musing.find(params[:id])
     @comment = Comment.new
@@ -10,7 +12,9 @@ class MusingsController < ApplicationController
   end
 
   def create
-    @musing = Musing.new(params[:musing])
+    # @musing = Musing.new(params[:musing])
+    @musing = current_user.musings.create(params[:musing])
+
 
     respond_to do |format|
       if @musing.save
