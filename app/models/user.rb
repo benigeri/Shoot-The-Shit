@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :name, :bio, :fb_profile, :twitter_profile
 
   has_many :musings
+  has_many :comments
 end
