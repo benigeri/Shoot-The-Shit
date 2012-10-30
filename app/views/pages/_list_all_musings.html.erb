@@ -9,6 +9,9 @@
           <span class="musingDate">
             <%= l musing.created_at, :format => "%d/%m/%y at %H:%M %p" %>
           </span>
+          <span class="musingAuthor">
+             by <%= User.find(musing.user_id).email %>
+          </span>
         </div>
         <div class="musingContent">
           <%= musing.content %>

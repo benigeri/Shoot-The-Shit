@@ -1,6 +1,7 @@
 <h2>This is the show page for a musing</h2>
 
 <h3><%= @musing.title %></h3>
+<h4><%= User.find(@musing.user_id).email %></h4>
 <p><%= @musing.content %></p>
 
 <h2>Comments:</h2>
