@@ -3,6 +3,7 @@ class MusingsController < ApplicationController
   end
 
   def new
+    @musing = Musing.new
   end
 
   def create

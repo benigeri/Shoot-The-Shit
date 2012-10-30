@@ -1,1 +1,27 @@
 <h2>This is the page for the new action in musing</h2>
+
+ <%= form_for(@musing) do |f| %>
+  <% if @musing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@musing.errors.count, "error") %> prohibited this musing from being saved:</h2>
+
+      <ul>
+      <% @musing.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_field :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
