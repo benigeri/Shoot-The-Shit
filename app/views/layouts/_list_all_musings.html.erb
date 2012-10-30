@@ -1,0 +1,17 @@
+<ul id="musings">
+  <% @musings.each do |musing| %>
+    <li class="musing">
+      <div class="title">
+        <%= musing.title %>
+      </div>
+      <div class="byline">
+        <span class="musingDate">
+          <%= l musing.created_at, :format => "%d/%m/%y at %H:%M %p" %>
+        </span>
+      </div>
+      <div class="musingContent">
+        <%= musing.content %>
+      </div>
+    </li>
+  <% end %>
+</ul>
