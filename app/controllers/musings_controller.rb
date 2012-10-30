@@ -1,6 +1,8 @@
 class MusingsController < ApplicationController
   def show
     @musing = Musing.find(params[:id])
+    @comment = Comment.new
+
   end
 
   def new

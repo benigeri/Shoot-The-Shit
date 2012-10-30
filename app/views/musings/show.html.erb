@@ -2,3 +2,43 @@
 
 <h3><%= @musing.title %></h3>
 <p><%= @musing.content %></p>
+
+<h2>Comments:</h2>
+<div>
+  <% @musing.comments.each do |comment| %>
+    <p>
+      <span>
+        <%= User.find(comment.user_id).email %>:<br />
+       </span>
+    <%= comment.content %>
+  </p>
+
+  <% end %>
+</div>
+
+
+
+<%= form_for(@comment) do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+
+    <%#= f.label :content %><br />
+    <%= f.text_area :content, :placeholder => "Add a comment" %>
+    <%= f.hidden_field :musing_id, :value => @musing.id %>
+
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

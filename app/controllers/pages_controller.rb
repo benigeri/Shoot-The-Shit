@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  def index
+  def musings
     @musings = Musing.all
   end
 end

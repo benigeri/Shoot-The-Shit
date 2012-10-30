@@ -3,8 +3,9 @@ ShootTheShit::Application.routes.draw do
 
   resources :pages
   resources :musings
+  resources :comments, :only => [:create]
 
-  root :to => "pages#index"
+  root :to => "pages#musings"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
