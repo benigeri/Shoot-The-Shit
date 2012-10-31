@@ -4,7 +4,19 @@
   <%= devise_error_messages! %>
 
   <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+  <%= f.email_field :email, :value => current_user.email %></div>
+
+  <div><%= f.label :username %><br />
+  <%= f.text_field :username, :value => current_user.username %></div>
+
+  <div><%= f.label :fb_profile %><br />
+  <%= f.text_field :fb_profile, :value => current_user.fb_profile %></div>
+
+  <div><%= f.label :twitter_profile %><br />
+  <%= f.text_field :twitter_profile, :value => current_user.twitter_profile %></div>
+
+  <div><%= f.label :bio %> <br />
+  <%= f.text_area :bio, :value => current_user.bio %></div>
 
   <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
   <%= f.password_field :password, :autocomplete => "off" %></div>
