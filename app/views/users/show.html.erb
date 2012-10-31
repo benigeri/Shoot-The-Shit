@@ -1,0 +1,27 @@
+<div class="publicProfile">
+  <% if @user.name? %>
+    <div class="name">
+      <%= @user.name %>
+    </div>
+  <% end %>
+  <% if @user.username? %>
+    <div class="userName">
+      <%= @user.username %>
+    </div>
+  <% end %>
+  <% if @user.fb_profile? %>
+    <div class="fbProfileLink">
+      <%= link_to "Facebook Profile", @user.fb_profile %>
+    </div>
+  <% end %>
+  <% if @user.twitter_profile? %>
+    <div class="twitterProfileLink">
+      <%= link_to "Twitter Profile", @user.twitter_profile %>
+    </div>
+  <% end %>
+  <% if @user.bio? %>
+    <div class="bi">
+      <%= @user.bio %>
+    </div>
+  <% end %>
+</div>

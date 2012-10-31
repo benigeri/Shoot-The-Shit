@@ -1,6 +1,6 @@
 ShootTheShit::Application.routes.draw do
   devise_for :users
-
+  resources :users
   resources :pages
   resources :musings
   resources :comments, :only => [:create]

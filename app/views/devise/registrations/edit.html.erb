@@ -6,6 +6,9 @@
   <div><%= f.label :email %><br />
   <%= f.email_field :email, :value => current_user.email %></div>
 
+  <div><%= f.label :name %><br />
+  <%= f.text_field :name, :value => current_user.name %></div>
+
   <div><%= f.label :username %><br />
   <%= f.text_field :username, :value => current_user.username %></div>
 
