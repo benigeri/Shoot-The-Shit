@@ -4,7 +4,7 @@
   <%= @musing.title %>
 </h3>
 <h3>
-  Votes: <%= @musing.votes.where(:up => true).count - @musing.votes.where(:up => false).count %>
+  Votes: <%= @musing.votecount %>
   <% if current_user && current_user.votes.where(:musing_id => @musing.id, :up => true).present? %>
     *
   <% else %>
