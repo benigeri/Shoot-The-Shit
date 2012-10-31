@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :name, :bio, :fb_profile, :twitter_profile
 
+  validates :username, presence: true, length: { maximum: 50 }
+
+
   has_many :musings
   has_many :comments
   has_many :votes
