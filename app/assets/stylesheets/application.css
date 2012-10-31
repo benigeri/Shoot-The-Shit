@@ -23,6 +23,8 @@ body {
   background: #F4F4F4;
   -webkit-text-size-adjust: none;
   font-family: "Helvetica Neue";
+  padding-top: 33px;
+  padding-bottom: 43px;
 }
 
 a {

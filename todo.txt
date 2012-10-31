@@ -1,9 +1,9 @@
-Implement user controller
+DONE Implement user controller
   DONE -add user page
   DONE -only available to signed in users
   DONE -lets user change his attributes if signed in
-  -username of musing author clickable, use link_to
-  -when on profile, if current_user == user that is on the page, then add edit button at bottom, thats when the form to edit comes up
+  DONE -username of musing author clickable, use link_to
+  DONE -when on profile, if current_user == user that is on the page, then add edit button at bottom, thats when the form to edit comes up
 
 Complete sign up fields
   -add First Name, Last Name, username, etc... options
@@ -15,6 +15,8 @@ Chat
 Navigation
   -finish styling so it looks half decent
   DONE -replace dummy links with actual links, use link_to method
+  -if user logged in, root -> musing pages
+  -if user logged out, root -> sign in/ sign up page (really need to wait for designs)
 
 Musings
   -implement top bar with back button
@@ -23,4 +25,7 @@ Musings
   -style add a new musing form
   -fix time stamps, waiting for answer: http://stackoverflow.com/questions/13150387/why-are-the-timestamps-all-delayed-with-rails-and-postgres
   -when displaying musings on page, make entire musing li item clickable instead of just title
+  DONE -truncate content when on homepage
+
+
 
