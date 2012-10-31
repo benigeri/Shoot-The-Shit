@@ -15,7 +15,7 @@
           </span>
         </div>
         <div class="musingContent">
-          <%= musing.content %>
+          <%= truncate(musing.content, :length => 180, :separator => ' ') %>
         </div>
       </li>
     <% end %>
