@@ -1,5 +1,6 @@
 class MusingsController < ApplicationController
   before_filter :authenticate_user!, :only => [:create]
+  before_filter :set_timezone
 
   def show
     @musing = Musing.find(params[:id])
