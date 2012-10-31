@@ -1,0 +1,26 @@
+Implement user controller
+  -add user page
+  -only available to signed in users
+  -lets user change his attributes if signed in
+  -username of musing author clickable, use link_to
+  -when on profile, if current_user == user that is on the page, then add edit button at bottom, thats when the form to edit comes up
+
+Complete sign up fields
+  -add First Name, Last Name, username, etc... options
+  -required vs non required
+
+Chat
+  -loads of shit to do
+
+Navigation
+  -finish styling so it looks half decent
+  -replace dummy links with actual links, use link_to method
+
+Musings
+  -implement top bar with back button
+  -style musing display
+  -style comments
+  -style add a new musing form
+  -fix time stamps, waiting for answer: http://stackoverflow.com/questions/13150387/why-are-the-timestamps-all-delayed-with-rails-and-postgres
+  -when displaying musings on page, make entire musing li item clickable instead of just title
+
