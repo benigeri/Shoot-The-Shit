@@ -24,4 +24,7 @@
       <%= @user.bio %>
     </div>
   <% end %>
+  <% if (@user == current_user) %>
+    <%= link_to "Edit", edit_user_registration_path %>
+  <% end %>
 </div>
