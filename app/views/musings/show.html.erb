@@ -18,7 +18,7 @@
   <% end %>
 </h3>
 <h4>
-  <%= User.find(@musing.user_id).email %>
+  <%= u = User.find(@musing.user_id); link_to u.username, u  %>
 </h4>
 <p>
   <%= @musing.content %>
@@ -29,7 +29,7 @@
   <% @musing.comments.each do |comment| %>
     <p>
       <span>
-        <%= User.find(comment.user_id).email %>:<br />
+        <%= u = User.find(comment.user_id); link_to u.username, u  %>:<br />
        </span>
     <%= comment.content %>
   </p>

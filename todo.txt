@@ -1,7 +1,7 @@
 Implement user controller
-  -add user page
-  -only available to signed in users
-  -lets user change his attributes if signed in
+  DONE -add user page
+  DONE -only available to signed in users
+  DONE -lets user change his attributes if signed in
   -username of musing author clickable, use link_to
   -when on profile, if current_user == user that is on the page, then add edit button at bottom, thats when the form to edit comes up
 
@@ -14,7 +14,7 @@ Chat
 
 Navigation
   -finish styling so it looks half decent
-  -replace dummy links with actual links, use link_to method
+  DONE -replace dummy links with actual links, use link_to method
 
 Musings
   -implement top bar with back button

@@ -11,7 +11,7 @@
             <%= l musing.created_at, :format => "%d/%m/%y at %I:%M %p" %>
           </span>
           <span class="musingAuthor">
-             by <%= User.find(musing.user_id).email %>
+             by <%= u = User.find(musing.user_id); link_to u.username, u  %>
           </span>
         </div>
         <div class="musingContent">
