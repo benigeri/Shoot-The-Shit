@@ -1,7 +1,13 @@
 <nav id="global-navbar">
   <ul id="navbar-list">
-    <li id="musingButton" ><a href="http://www.stanford.edu/~benigeri/assign4/index.html" class="selected">Musings</a></li>
-    <li id="chatButton"><a href="http://www.stanford.edu/~benigeri/assign4/chat.html" >Chat</a></li>
-    <li id="profileButton"><a href="http://www.stanford.edu/~benigeri/assign4/profile.html" >Profile</a></li>
+    <li id="musingButton" >
+      <%= link_to "Musings", root_path %>
+    </li>
+    <li id="chatButton">
+      <a>Chat</a>
+    </li>
+    <li id="profileButton">
+      <%= link_to "Profile", edit_user_registration_path %>
+    </li>
   </ul>
 </nav>
