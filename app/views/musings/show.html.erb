@@ -1,8 +1,28 @@
 <h2>This is the show page for a musing</h2>
 
-<h3><%= @musing.title %></h3>
-<h4><%= User.find(@musing.user_id).email %></h4>
-<p><%= @musing.content %></p>
+<h3>
+  <%= @musing.title %>
+</h3>
+<h3>
+  Votes: <%= @musing.votes.where(:up => true).count - @musing.votes.where(:up => false).count %>
+  <% if current_user && current_user.votes.where(:musing_id => @musing.id, :up => true).present? %>
+    *
+  <% else %>
+    <%= link_to "+", votes_path(:vote => {:musing_id => @musing.id, :up => true}), :method => :post %>
+  <% end %>
+
+  <% if current_user && current_user.votes.where(:musing_id => @musing.id, :up => false).present? %>
+    *
+  <% else %>
+    <%= link_to "-", votes_path(:vote => {:musing_id => @musing.id, :up => false}), :method => :post %>
+  <% end %>
+</h3>
+<h4>
+  <%= User.find(@musing.user_id).email %>
+</h4>
+<p>
+  <%= @musing.content %>
+</p>
 
 <h2>Comments:</h2>
 <div>
