@@ -1,3 +1,67 @@
 // Place all the styles related to the musings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.musing {
+  box-sizing: border-box;
+  border-radius: 3px;
+  border: 1px solid #DBDBDB;
+  padding: 10px;
+  width: 100%;
+  margin-top: 10px;
+  background: #FCFCFC;
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.2);
+}
+
+.newMusingButton {
+  display: block;
+  text-decoration: none;
+  box-sizing: border-box;
+  border-radius: 3px;
+  border-bottom: 1px solid #b34242;
+  border-top: 1px solid #f09090;
+  border-right: 1px solid #d95555;
+  border-left: 1px solid #d95555;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(234,99,99,1)), color-stop(43%,rgba(234,99,99,1)), color-stop(56%,rgba(230,85,85,1)), color-stop(100%,rgba(230,85,85,1)));
+  text-align: center;
+  color: white;
+  font-size: 22px
+  line-height: 26px;
+  color: #FFFFFF;
+  text-shadow: 0px 1px 1px rgba(0,0,0, 0.3);
+  padding: 10px;
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.2);
+}
+
+.newMusingButton:active {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(230,85,85,1)), color-stop(43%,rgba(230,85,85,1)), color-stop(56%,rgba(234,99,99,1)), color-stop(100%,rgba(234,99,99,1)));
+  box-shadow: inset 0px 1px 2px 0px rgba(0,0,0,0.2);
+}
+
+.newMusingButton:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(230,85,85,1)), color-stop(43%,rgba(230,85,85,1)), color-stop(56%,rgba(234,99,99,1)), color-stop(100%,rgba(234,99,99,1)));
+  box-shadow: inset 0px 1px 2px 0px rgba(0,0,0,0.2);
+}
+
+
+.musing .title {
+  color: #797979;
+  font-size: 22px
+  line-height: 26px;
+}
+
+
+.musing .byline {
+  color: #B6B6B6;
+  font-size: 13px;
+  border-bottom: 1px solid #E7E7E7;
+  line-height: 22px;
+    margin-bottom: 6px;
+
+}
+
+.musingContent {
+  color: #797979;
+  line-height: 18px;
+
+}

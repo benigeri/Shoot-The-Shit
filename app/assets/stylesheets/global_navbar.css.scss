@@ -1,0 +1,62 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#global-navbar {
+  -webkit-box-sizing: border-box;
+  box-sizing:border-box;
+  bottom: 0;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  z-index: 100 !important;
+}
+
+#global-navbar ul{
+  width: 100%;
+  background: blue;
+  margin: 0px;
+  padding: 0px;
+
+}
+
+
+#global-navbar a{
+  margin: 0;
+  height: auto;
+  float: left;
+  color: #FFFFFF;
+  font-weight: lighter;
+  font-size: 18px;
+  border-top: 1px solid;
+  text-decoration: none;
+  text-align: center;
+  position: relative;
+  padding: 12px 0px;
+  box-sizing: border-box;
+  z-index: 100;
+  background-color: #B8B8B8;
+
+}
+#musingButton a{
+  width: 40%;
+  border-right: 1px solid #019381;
+}
+
+#chatButton a{
+  width: 40%;
+  border-right: 1px solid #019381;
+  border-left: 1px solid #F8F8F8;
+}
+
+#profileButton a{
+  width: 20%;
+  border-left: 1px solid #F8F8F8;
+
+}
+
+#global-navbar a.selected {
+  background: #00B398;
+  /*z-index: 200;*/
+  /*border: 1px solid black;*/
+}
