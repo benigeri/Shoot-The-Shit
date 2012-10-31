@@ -1,3 +1,4 @@
+<%= link_to "Add a new musing", new_musing_path, :class => "newMusingButton" %>
 <ul id="musings">
   <% if !@musings.blank? %>
     <% @musings.each do |musing| %>
@@ -7,7 +8,7 @@
         </div>
         <div class="byline">
           <span class="musingDate">
-            <%= l musing.created_at, :format => "%d/%m/%y at %H:%M %p" %>
+            <%= l musing.created_at, :format => "%d/%m/%y at %I:%M %p" %>
           </span>
           <span class="musingAuthor">
              by <%= User.find(musing.user_id).email %>
