@@ -1,4 +1,8 @@
- <%= form_for(@musing) do |f| %>
+<!-- Google location api for get location on musing -->
+<!-- Not entirely sure whether its better to have in application.js -->
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+
+<%= form_for(@musing) do |f| %>
   <% if @musing.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@musing.errors.count, "error") %> prohibited this musing from being saved:</h2>
@@ -19,6 +23,22 @@
     <%= f.label :content %><br />
     <%= f.text_area :content, :placeholder => "Type you musing here..." %>
   </div>
+
+  <div class="field">
+    <%= f.label :latitude %>
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %>
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="field"></div>
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  <div class="locatioButton">
+    <%= link_to_function "Add location", "setLocation()", :class => "addLocationLink" %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

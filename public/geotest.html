@@ -6,7 +6,7 @@
     </head>
     <body>
     <div id="yourinfo"></div>
-    <script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAp04yNttlQq-7b4aZI_jL5hQYPm-xtd00hTQOC0OXpAMO40FHAxQMnH50uBbWoKVHwgpklyirDEregg"></script>
+
     <script type="text/javascript">
         if(google.loader.ClientLocation)
         {
@@ -23,5 +23,31 @@
             document.getElementById('yourinfo').innerHTML = '<p>Whoops!</p>';
         }
     </script>
+
+
+
+
+    <h1>html5</h1>
+    <p id="demo">Click the button to get your coordinates:</p>
+<button onclick="getLocation()">Try It</button>
+<script>
+var x=document.getElementById("demo");
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  else{x.innerHTML="Geolocation is not supported by this browser.";}
+  }
+function showPosition(position)
+  {
+  x.innerHTML="Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude;
+  }
+</script>
+
+
+
     </body>
 </html>
