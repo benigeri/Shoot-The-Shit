@@ -10,6 +10,12 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.create(params[:comment])
+    if @comment.save
+      flash[:notice] = "Comment successfully created."
+    else
+      flash[:notice] = "Could not create a blank comment."
+    end
+
     redirect_to :back
   end
 
