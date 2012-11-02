@@ -10,7 +10,11 @@
 </script>
 <div class="secondaryNav">
   <% if @back_button %>
-    <a href="#" ontouchend="goBack(event);" class="back_button">back</a>
+    <% if @back_link %>
+      <%= link_to "back", @back_link, :class => "back_button" %>
+    <% else %>
+      <a href="#" ontouchend="goBack(event);" class="back_button">back</a>
+    <% end %>
   <% end %>
   <% if @pillbox_sorter %>
     <div class="pillbox" align="center">
