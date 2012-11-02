@@ -1,13 +1,25 @@
 <nav id="global-navbar">
   <ul id="navbar-list">
-    <li id="musingButton" >
-      <%= link_to "Musings", root_path %>
+    <li id="musingButton">
+      <% if @highlight_musings %>
+        <%= link_to "Musings", root_path, :class => "selected" %>
+      <% else %>
+        <%= link_to "Musings", root_path %>
+      <% end %>
     </li>
     <li id="chatButton">
-      <a>Chat</a>
+      <% if @highlight_chat %>
+        <%= link_to "Chat", '/chat', :class => "selected" %>
+      <% else %>
+        <%= link_to "Chat", '/chat' %>
+      <% end %>
     </li>
     <li id="profileButton">
-      <%= link_to "Profile", current_user %>
+      <% if @highlight_profile %>
+        <%= link_to "Profile", current_user, :class => "selected" %>
+      <% else %>
+        <%= link_to "Profile", current_user %>
+      <% end %>
     </li>
   </ul>
 </nav>

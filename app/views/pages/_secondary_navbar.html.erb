@@ -1,7 +1,21 @@
+<script type="text/javascript">
+  function toggleClass(elem) {
+    $("a.pillbox").removeClass("selected");
+    $(elem).addClass("selected");
+  }
+  /*function goBack() {
+  	window.history.back();
+  }*/
+</script>
 <div class="secondaryNav">
-  <div class="pillbox" align="center">
-    <a href="#" ontouchend="toggleClass(this);" class="pillbox left selected">Recent</a>
-    <a href="#" ontouchend="toggleClass(this);" class="pillbox middle">Popular</a>
-    <a href="#" ontouchend="toggleClass(this);" class="pillbox right">Local</a>
-  </div>
+  <% if @back_button %>
+    <%= link_to "back", @back_link, :class => "back_button" %>
+  <% end %>
+  <% if @pillbox_sorter %>
+  	<div class="pillbox" align="center">
+    	<a href="#" ontouchend="toggleClass(this);" class="pillbox left selected">Recent</a>
+    	<a href="#" ontouchend="toggleClass(this);" class="pillbox middle">Popular</a>
+    	<a href="#" ontouchend="toggleClass(this);" class="pillbox right">Local</a>
+  	</div>
+  <% end %>
 </div>

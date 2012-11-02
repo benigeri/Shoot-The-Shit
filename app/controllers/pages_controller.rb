@@ -4,5 +4,9 @@ class PagesController < ApplicationController
 
   def musings
     @musings = Musing.all
+    @secondary_navbar = true
+    @pillbox_sorter = true
+    @highlight_musings = true
   end
+
 end

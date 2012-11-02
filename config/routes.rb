@@ -5,6 +5,7 @@ ShootTheShit::Application.routes.draw do
   resources :musings
   resources :comments, :only => [:create]
   resources :votes
+  resources :chat
 
   root :to => "pages#musings"
 

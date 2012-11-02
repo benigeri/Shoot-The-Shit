@@ -5,11 +5,16 @@ class MusingsController < ApplicationController
   def show
     @musing = Musing.find(params[:id])
     @comment = Comment.new
-
+    @secondary_navbar = true
+    @back_button = true
+    @back_link = '/'
   end
 
   def new
     @musing = Musing.new
+    @secondary_navbar = true
+    @back_button = true
+    @back_link = '/'
   end
 
   def create

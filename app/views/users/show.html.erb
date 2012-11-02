@@ -1,31 +1,31 @@
 <div class="publicProfile">
   <% if @user.name? %>
     <div class="name">
-      <%= @user.name %>
+      Name: <%= @user.name %>
     </div>
   <% end %>
   <% if @user.username? %>
     <div class="userName">
-      <%= @user.username %>
+      Username: <%= @user.username %>
     </div>
   <% end %>
   <% if @user.fb_profile? %>
     <div class="fbProfileLink">
-      <%= link_to "Facebook Profile", @user.fb_profile %>
+      Facebook Profile: <%= link_to "Facebook Profile", @user.fb_profile %>
     </div>
   <% end %>
   <% if @user.twitter_profile? %>
     <div class="twitterProfileLink">
-      <%= link_to "Twitter Profile", @user.twitter_profile %>
+      Twitter Profile: <%= link_to "Twitter Profile", @user.twitter_profile %>
     </div>
   <% end %>
   <% if @user.bio? %>
     <div class="bi">
-      <%= @user.bio %>
+      Bio: <%= @user.bio %>
     </div>
   <% end %>
   <% if (@user == current_user) %>
-    <%= link_to "Edit", edit_user_registration_path %>
+    <%= link_to "Edit Profile", edit_user_registration_path %>
     <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
   <% end %>
 </div>
