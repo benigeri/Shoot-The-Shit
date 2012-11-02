@@ -7,13 +7,13 @@
   <% if current_user && current_user.votes.where(:musing_id => @musing.id, :up => true).present? %>
     *
   <% else %>
-    <%= link_to "+", votes_path(:vote => {:musing_id => @musing.id, :up => true}), :method => :post %>
+    <%= link_to "+", votes_path(:vote => {:musing_id => @musing.id, :up => true}), :method => 'post' %>
   <% end %>
 
   <% if current_user && current_user.votes.where(:musing_id => @musing.id, :up => false).present? %>
     *
   <% else %>
-    <%= link_to "-", votes_path(:vote => {:musing_id => @musing.id, :up => false}), :method => :post %>
+    <%= link_to "-", votes_path(:vote => {:musing_id => @musing.id, :up => false}), :method => 'post' %>
   <% end %>
 </h3>
 <div class="byline">
