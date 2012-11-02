@@ -25,6 +25,8 @@ body {
   font-family: "Helvetica Neue";
   padding-top: 33px;
   padding-bottom: 43px;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 a {
