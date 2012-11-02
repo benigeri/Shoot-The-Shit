@@ -3,6 +3,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @highlight_profile = true
+    if @user == current_user
+    	@highlight_profile = true
+    else
+    	@secondary_navbar = true
+    	@back_button = true
+    end
   end
 end

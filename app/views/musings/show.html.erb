@@ -1,8 +1,7 @@
-<h2>This is the show page for a musing</h2>
-
-<h3>
+<div class="musing">
+<div class="title">
   <%= @musing.title %>
-</h3>
+</div>
 <h3>
   Votes: <%= @musing.votecount %>
   <% if current_user && current_user.votes.where(:musing_id => @musing.id, :up => true).present? %>
@@ -17,28 +16,32 @@
     <%= link_to "-", votes_path(:vote => {:musing_id => @musing.id, :up => false}), :method => :post %>
   <% end %>
 </h3>
-<h4>
-  <%= u = User.find(@musing.user_id); link_to u.username, u  %>
-</h4>
+<div class="byline">
+  Posted by: <%= u = User.find(@musing.user_id); link_to u.username, u %><br>
+  <span class="musingDate">
+    <%= l @musing.created_at, :format => "%d/%m/%y at %H:%M %p" %>
+  </span>
+</div>
 <p>
   <%= @musing.content %>
 </p>
 
-<h2>Comments:</h2>
-<div>
-  <% @musing.comments.each do |comment| %>
-    <p>
-      <span>
-        <%= u = User.find(comment.user_id); link_to u.username, u  %>:<br />
-       </span>
-    <%= comment.content %>
-  </p>
-
-  <% end %>
 </div>
 
+<div>
+<div class="commentsTitle">Comments:</div>
+  <% @musing.comments.each do |comment| %>
+    <div class="comment">
+      <p>
+        <span>
+          <%= u = User.find(comment.user_id); link_to u.username, u %>:<br />
+        </span>
+        <%= comment.content %>
+      </p>
+    </div>
+  <% end %>
 
-
+<div class="add_comment">
 <%= form_for(@comment) do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
@@ -63,3 +66,5 @@
     <%= f.submit %>
   </div>
 <% end %>
+</div>
+</div>

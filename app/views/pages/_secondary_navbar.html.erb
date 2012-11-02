@@ -3,13 +3,14 @@
     $("a.pillbox").removeClass("selected");
     $(elem).addClass("selected");
   }
-  /*function goBack() {
+  function goBack(evt) {
+    evt.preventDefault();
   	window.history.back();
-  }*/
+  }
 </script>
 <div class="secondaryNav">
   <% if @back_button %>
-    <%= link_to "back", @back_link, :class => "back_button" %>
+    <a href="#" ontouchend="goBack(event);" class="back_button">back</a>
   <% end %>
   <% if @pillbox_sorter %>
   	<div class="pillbox" align="center">
