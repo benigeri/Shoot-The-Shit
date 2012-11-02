@@ -9,9 +9,9 @@ ShootTheShit::Application.routes.draw do
 
   root :to => "pages#musings"
 
-  # devise_for :users do
-  #   get 'logout' => 'devise/sessions#destroy'
-  # end
+  devise_for :users do
+    get 'logout' => 'devise/sessions#destroy'
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
