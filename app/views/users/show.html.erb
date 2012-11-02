@@ -27,6 +27,5 @@
   <% if (@user == current_user) %>
     <%= link_to "Edit Profile", edit_user_registration_path %>
     <%= link_to 'Sign Out1', destroy_user_session_path, :method => 'delete' %>
-    <%= link_to "Logout2", logout_path %>
   <% end %>
 </div>
