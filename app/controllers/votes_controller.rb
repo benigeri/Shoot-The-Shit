@@ -11,6 +11,7 @@ class VotesController < ApplicationController
   def new
   end
 
+  ##BUG: when revote, need to increment by 2 not 1
   def create
     @vote = current_user.votes.where(:musing_id => params[:vote][:musing_id]).first ||  current_user.votes.create(params[:vote])
     @vote.update_attributes(:up => params[:vote][:up])
