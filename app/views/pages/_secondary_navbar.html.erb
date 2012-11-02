@@ -5,7 +5,7 @@
   }
   function goBack(evt) {
     evt.preventDefault();
-  	window.history.back();
+    window.history.back();
   }
 </script>
 <div class="secondaryNav">
@@ -13,10 +13,10 @@
     <a href="#" ontouchend="goBack(event);" class="back_button">back</a>
   <% end %>
   <% if @pillbox_sorter %>
-  	<div class="pillbox" align="center">
-    	<a href="#" ontouchend="toggleClass(this);" class="pillbox left selected">Recent</a>
-    	<a href="#" ontouchend="toggleClass(this);" class="pillbox middle">Popular</a>
-    	<a href="#" ontouchend="toggleClass(this);" class="pillbox right">Local</a>
-  	</div>
+    <div class="pillbox" align="center">
+      <a href="#" ontouchend="toggleClass(this);" class="pillbox left selected">Recent</a>
+      <a href="#" ontouchend="toggleClass(this);" class="pillbox middle">Popular</a>
+      <a href="#" ontouchend="toggleClass(this);" class="pillbox right">Local</a>
+    </div>
   <% end %>
 </div>
