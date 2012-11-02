@@ -2,7 +2,7 @@ class VotesController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    redirect_to root_path
+    redirect_to :back
   end
 
   def show
