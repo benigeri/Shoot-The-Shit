@@ -1,33 +1,27 @@
-DONE Implement user controller
-  DONE -add user page
-  DONE -only available to signed in users
-  DONE -lets user change his attributes if signed in
-  DONE -username of musing author clickable, use link_to
-  DONE -when on profile, if current_user == user that is on the page, then add edit button at bottom, thats when the form to edit comes up
 
-Complete sign up fields
-  -add First Name, Last Name, username, etc... options
-  -required vs non required
+Backend:
 
-Chat
-  -loads of shit to do
+- Implement chat
 
-Navigation
-  -finish styling so it looks half decent
-  DONE -replace dummy links with actual links, use link_to method
+- Implement geolocation
 
-  THIS IS IMPOSSIBLE, spent 1h trying to figure it out:
-  ##-if user logged in, root -> musing pages
-  ##-if user logged out, root -> sign in/ sign up page (really need to wait for designs)
+- add a users musings on a profile page
 
-Musings
-  -implement top bar with back button
-  -style musing display
-  -style comments
-  -style add a new musing form
-  DONE-fix time stamps, waiting for answer: http://stackoverflow.com/questions/13150387/why-are-the-timestamps-all-delayed-with-rails-and-postgres
-  -when displaying musings on page, make entire musing li item clickable instead of just title
-  DONE -truncate content when on homepage
+- back button for when you go on your profile from a profile link
 
+- add splash page
 
+- add icon
+
+Styling:
+
+- Forms!!!
+- Top nav:
+  -- back button
+  -- overall look
+  -- button group for musings
+- Bottom nav:
+  -- improve selected state
+  -- improve normal state
+  -- fix layout to make it look not retaded (2:2:1)
 
