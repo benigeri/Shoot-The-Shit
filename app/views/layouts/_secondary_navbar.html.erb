@@ -2,48 +2,13 @@
  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
  <!-- This is not really save, change so it sends by post -->
  <script type="text/javascript">
-    var locationObject = {
-      name : "",
-      longitude : "",
-      latitude : ""
-    };
-
-    function initLocation() {
-      if (navigator.geolocation && typeof (navigator.geolocation.getCurrentPosition) == "function") {
-        navigator.geolocation.getCurrentPosition(geoCodeCallback);
-      }
-    }
-
-    function geoCodeCallback(position) {
-      locationObject.longitude = position.coords.longitude;
-      locationObject.latitude = position.coords.latitude;
-      var latLng = new google.maps.LatLng(locationObject.latitude, locationObject.longitude);
-      var coder = new google.maps.Geocoder();
-      coder.geocode({ 'latLng': latLng }, showLocaleCallback);
-    }
-
-    function showLocaleCallback(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        var res = results[0];
-        for (var i = 0; i < res.address_components.length; i++) {
-          var type = res.address_components[i].types[0];
-          if (type == "subpremise" || type == "premise" || type == "neighborhood" || type == "sublocality" || type == "locality") {
-            locationObject.name = res.address_components[i].short_name;
-            passToController();
-            return;
-          }
-        }
-        // alert("this is da location: " + dalocation);
-      }
-    }
-
-    function passToController() {
+  function passLocationToController(object) {
         var url = "<%= url_for(:action => 'local', :controller => 'musings_list') %>";
-        url += "?locationName=" + locationObject.name;
-        url += "&locationLatitude=" + locationObject.latitude;
-        url += "&locationLongitude=" + locationObject.longitude;
+        url += "?locationName=" + object.name;
+        url += "&locationLatitude=" + object.latitude;
+        url += "&locationLongitude=" + object.longitude;
         window.location = url;
-    }
+  }
 </script>
 <div class="secondaryNav">
   <% if @back_button %>
@@ -58,7 +23,7 @@
     <div class="pillbox" align="center">
       <%= link_to "Popular", url_for(:action => 'popular', :controller => 'musings_list'), :class => ((@sort == "popular") ? "pillbox left selected" : "pillbox left") %>
       <%= link_to "Recent", url_for(:action => 'recent', :controller => 'musings_list'), :class => ((@sort == "recent") ? "pillbox middle selected" : "pillbox middle") %>
-      <%= link_to_function "Local", "initLocation()", :class => ((@sort == "local") ? "pillbox right selected" : "pillbox right") %>
+      <%= link_to_function "Local", "callbackSwitch = PASS_LOCATION_TO_CONTROLLER; initLocation();", :class => ((@sort == "local") ? "pillbox right selected" : "pillbox right") %>
       </div>
   <% end %>
 
