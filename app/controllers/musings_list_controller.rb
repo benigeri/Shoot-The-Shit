@@ -1,4 +1,6 @@
 class MusingsListController < ApplicationController
+  before_filter :authenticate_user!
+  before_filter :set_timezone
   before_filter :set_globals
   def set_globals
     @secondary_navbar = true
