@@ -15,7 +15,7 @@ class MusingsListController < ApplicationController
 
   def popular
     @sort = "popular"
-    @musings = Musing.where(:created_at => (Time.now.midnight - 7.day)..Time.now.midnight).order("votecount DESC")
+    @musings = Musing.where(:created_at => (Time.now - 7.day)..Time.now).order("votecount DESC")
   end
 
   def local
