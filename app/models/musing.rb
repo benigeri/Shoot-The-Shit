@@ -11,6 +11,4 @@ class Musing < ActiveRecord::Base
   validates :content, :presence => true
 
 
-
-
 end
