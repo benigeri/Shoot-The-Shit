@@ -27,7 +27,7 @@
 <body>
 
   <% if @secondary_navbar %>
-    <%= render '/pages/secondary_navbar' %>
+    <%= render '/layouts/secondary_navbar' %>
   <% end %>
 
   <div class="content">
@@ -36,6 +36,6 @@
     <%= yield %>
   </div>
 
-  <%= render '/pages/global_navbar' %>
+  <%= render '/layouts/global_navbar' %>
 </body>
 </html>

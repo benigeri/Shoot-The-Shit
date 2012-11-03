@@ -1,6 +1,6 @@
 class Musing < ActiveRecord::Base
   # attr_accessible :title, :body
-  attr_accessible :title, :content, :voteCount
+  attr_accessible :title, :content, :voteCount, :longitude, :latitude, :city
   # has_many :comments
   # has_many :votes
   belongs_to :user

@@ -7,12 +7,17 @@
           <%= link_to musing.title, musing %>
         </div>
         <div class="byline">
-          <span class="musingDate">
-            <%= l musing.created_at, :format => "%d/%m/%y at %I:%M %p" %>
-          </span>
           <span class="musingAuthor">
              by <%= u = User.find(musing.user_id); link_to u.username, u  %>
           </span>
+          <span class="musingDate">
+            on <%= l musing.created_at, :format => "%d/%m/%y at %I:%M %p" %>
+          </span>
+          <% if musing.city? %>
+            <span class="musingCity">
+              near <%= musing.city %>
+            </span>
+          <% end %>
         </div>
         <div class="musingContent">
           <%= truncate(musing.content, :length => 180, :separator => ' ') %>

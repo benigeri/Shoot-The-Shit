@@ -1,0 +1,23 @@
+
+<div class="secondaryNav">
+  <% if @back_button %>
+    <% if @back_link %>
+      <%= link_to "back", @back_link, :class => "back_button" %>
+    <% else %>
+      <a href="#" onclick="goBack(event);" class="back_button">back</a>
+    <% end %>
+  <% end %>
+
+  <% if @pillbox_sorter %>
+    <div class="pillbox" align="center">
+      <%= link_to "Popular", url_for(:action => 'popular', :controller => 'musings_list'), :class => ((@sort == "popular") ? "pillbox left selected" : "pillbox left") %>
+      <%= link_to "Recent", url_for(:action => 'recent', :controller => 'musings_list'), :class => ((@sort == "recent") ? "pillbox middle selected" : "pillbox middle") %>
+      <%= link_to "Local", url_for(:action => 'local', :controller => 'musings_list'), :class => ((@sort == "local") ? "pillbox right selected" : "pillbox right") %>
+      </div>
+  <% end %>
+
+</div>
+
+<!-- 
+(if @sort = "popular" "pillbox left selected" else "pillbox left" end)
+ -->

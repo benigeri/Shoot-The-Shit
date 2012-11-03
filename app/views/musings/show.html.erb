@@ -1,70 +1,78 @@
-<div class="musing">
-<div class="title">
-  <%= @musing.title %>
-</div>
-<h3>
-  Votes: <%= @musing.votecount %>
-  <% if current_user && current_user.votes.where(:musing_id => @musing.id, :up => true).present? %>
-    *
-  <% else %>
-    <%= link_to "+", votes_path(:vote => {:musing_id => @musing.id, :up => true}), :method => 'post' %>
-  <% end %>
-
-  <% if current_user && current_user.votes.where(:musing_id => @musing.id, :up => false).present? %>
-    *
-  <% else %>
-    <%= link_to "-", votes_path(:vote => {:musing_id => @musing.id, :up => false}), :method => 'post' %>
-  <% end %>
-</h3>
-<div class="byline">
-  Posted by: <%= u = User.find(@musing.user_id); link_to u.username, u %><br>
-  <span class="musingDate">
-    <%= l @musing.created_at, :format => "%d/%m/%y at %H:%M %p" %>
-  </span>
-</div>
-<p>
-  <%= @musing.content %>
-</p>
-
-</div>
-
-<div>
-<div class="commentsTitle">Comments:</div>
-  <% @musing.comments.each do |comment| %>
-    <div class="comment">
-      <p>
-        <span>
-          <%= u = User.find(comment.user_id); link_to u.username, u %>:<br />
-        </span>
-        <%= comment.content %>
-      </p>
+  <div class="musing">
+    <div class="title">
+      <%= @musing.title %>
     </div>
-  <% end %>
-
-<div class="add_comment">
-<%= form_for(@comment) do |f| %>
-  <% if @comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-
-      <ul>
-      <% @comment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+    <h3>
+      Votes: <%= @musing.votecount %>
+      <% if current_user && current_user.votes.where(:musing_id => @musing.id, :up => true).present? %>
+        *
+      <% else %>
+        <%= link_to "+", votes_path(:vote => {:musing_id => @musing.id, :up => true}), :method => 'post' %>
       <% end %>
-      </ul>
+
+      <% if current_user && current_user.votes.where(:musing_id => @musing.id, :up => false).present? %>
+        *
+      <% else %>
+        <%= link_to "-", votes_path(:vote => {:musing_id => @musing.id, :up => false}), :method => 'post' %>
+      <% end %>
+    </h3>
+
+    <div class="byline">
+      <span class="musingAuthor">
+         by <%= u = User.find(@musing.user_id); link_to u.username, u  %>
+      </span>
+      <span class="musingDate">
+        on <%= l @musing.created_at, :format => "%d/%m/%y at %I:%M %p" %>
+      </span>
+      <% if @musing.city? %>
+        <span class="musingCity">
+          near <%= @musing.city %>
+        </span>
+      <% end %>
+    </div>
+  <p>
+    <%= @musing.content %>
+  </p>
+
+  </div>
+
+  <div>
+  <div class="commentsTitle">Comments:</div>
+    <% @musing.comments.each do |comment| %>
+      <div class="comment">
+        <p>
+          <span>
+            <%= u = User.find(comment.user_id); link_to u.username, u %>:<br />
+          </span>
+          <%= comment.content %>
+        </p>
+      </div>
+    <% end %>
+
+  <div class="add_comment">
+  <%= form_for(@comment) do |f| %>
+    <% if @comment.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+        <ul>
+        <% @comment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+
+      <%#= f.label :content %><br />
+      <%= f.text_area :content, :placeholder => "Add a comment" %>
+      <%= f.hidden_field :musing_id, :value => @musing.id %>
+
+    </div>
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-
-    <%#= f.label :content %><br />
-    <%= f.text_area :content, :placeholder => "Add a comment" %>
-    <%= f.hidden_field :musing_id, :value => @musing.id %>
-
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-</div>
 </div>

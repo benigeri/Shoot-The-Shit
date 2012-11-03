@@ -13,3 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+  function toggleClass(elem) {
+    $("a.pillbox").removeClass("selected");
+    $(elem).addClass("selected");
+  }
+  function goBack(evt) {
+    evt.preventDefault();
+    window.history.back();
+  }

@@ -7,7 +7,11 @@ ShootTheShit::Application.routes.draw do
   resources :votes
   resources :chat
 
-  root :to => "pages#musings"
+  match '/musings_list/popular',  to: 'musings_list#popular'
+  match '/musings_list/local',    to: 'musings_list#local'
+  match '/musings_list/recent',   to: 'musings_list#recent'
+
+  root :to => "musings_list#popular"
 
   devise_for :users do
     get 'logout' => 'devise/sessions#destroy'
