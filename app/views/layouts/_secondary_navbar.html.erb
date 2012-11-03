@@ -1,4 +1,18 @@
+<!-- Not in js assets because requires erb to generat link -->
+<script type="text/javascript">
+  function localSort(){
+    if(google.loader.ClientLocation) {
+      var latitude = google.loader.ClientLocation.latitude;
+      var longitude = google.loader.ClientLocation.longitude;
+      alert("Longitude is " + longitude + "latitude is :" + latitude);
+      window.location = "<%= url_for(:action => 'local', :controller => 'musings_list') %>";
+    } else {
+      alert("Unfortunately we were not able to get your location.")
+    }
+    return;
+  }
 
+</script>
 <div class="secondaryNav">
   <% if @back_button %>
     <% if @back_link %>
@@ -12,7 +26,7 @@
     <div class="pillbox" align="center">
       <%= link_to "Popular", url_for(:action => 'popular', :controller => 'musings_list'), :class => ((@sort == "popular") ? "pillbox left selected" : "pillbox left") %>
       <%= link_to "Recent", url_for(:action => 'recent', :controller => 'musings_list'), :class => ((@sort == "recent") ? "pillbox middle selected" : "pillbox middle") %>
-      <%= link_to "Local", url_for(:action => 'local', :controller => 'musings_list'), :class => ((@sort == "local") ? "pillbox right selected" : "pillbox right") %>
+      <%= link_to_function "Local", "localSort()", :class => ((@sort == "local") ? "pillbox right selected" : "pillbox right") %>
       </div>
   <% end %>
 
@@ -21,3 +35,4 @@
 <!-- 
 (if @sort = "popular" "pillbox left selected" else "pillbox left" end)
  -->
+
