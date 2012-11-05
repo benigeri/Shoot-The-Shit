@@ -19,11 +19,13 @@ class VotesController < ApplicationController
     @musing = Musing.where(:id => @vote.musing_id).first
 
     if @vote.up
-      @musing.votecount += 1
-      @musing.save
+     if @musing.save
+        @musing.votecount += 1
+     end
     else
-      @musing.votecount -= 1
-      @musing.save
+      if @musing.save
+        @musing.votecount -= 1
+      end
     end
     redirect_to :back
   end
