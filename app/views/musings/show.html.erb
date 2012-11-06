@@ -30,14 +30,12 @@
         </span>
       <% end %>
     </div>
-  <p>
-    <%= @musing.content %>
-  </p>
-
+    <p>
+      <%= @musing.content %>
+    </p>
   </div>
 
-  <div>
-  <div class="commentsTitle">Comments:</div>
+  <h2 class="commentsTitle">Comments:</h2>
     <% @musing.comments.each do |comment| %>
       <div class="comment">
         <p>
