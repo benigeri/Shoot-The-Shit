@@ -1,25 +1,22 @@
-<nav id="global-navbar">
-  <ul id="navbar-list">
-    <li id="musingButton">
-      <% if @highlight_musings %>
-        <%= link_to "Musings", root_path, :class => "selected" %>
-      <% else %>
-        <%= link_to "Musings", root_path %>
-      <% end %>
+<nav class="bar-tab">
+  <ul class="tab-inner">
+    <li class="tab-item <%= "active" if @highlight_musings %>">
+      <a href="<%= url_for(root_path) %>">
+        <img class="tab-icon" src="">
+        <div class="tab-label">Musings</div>
+      </a>
     </li>
-    <li id="chatButton">
-      <% if @highlight_chat %>
-        <%= link_to "Chat", '/chat', :class => "selected" %>
-      <% else %>
-        <%= link_to "Chat", '/chat' %>
-      <% end %>
+    <li class="tab-item <%= "active" if @highlight_chat %>">
+      <a href="<%= url_for('/chat') %>">
+        <img class="tab-icon" src="">
+        <div class="tab-label">Chat</div>
+      </a>
     </li>
-    <li id="profileButton">
-      <% if @highlight_profile %>
-        <%= link_to "Profile", current_user, :class => "selected" %>
-      <% else %>
-        <%= link_to "Profile", current_user %>
-      <% end %>
+    <li class="tab-item <%= "active" if @highlight_profile %>">
+      <a href="<%= url_for(current_user) %>">
+        <img class="tab-icon" src="">
+        <div class="tab-label">Profile</div>
+      </a>
     </li>
   </ul>
 </nav>
