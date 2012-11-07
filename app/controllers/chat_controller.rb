@@ -1,7 +1,12 @@
 class ChatController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :set_globals
+
+  def set_globals
+    @secondary_navbar = true
+    @highlight_chat = true
+  end
 
   def index
-    @highlight_chat = true
   end
 end

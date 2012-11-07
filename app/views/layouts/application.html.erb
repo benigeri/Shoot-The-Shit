@@ -38,6 +38,9 @@
     <%= yield %>
   </div>
 
-  <%= render '/layouts/global_navbar' %>
+  <% if @global_navbar %>
+    <%= render '/layouts/global_navbar' %>
+  <% end %>
+
 </body>
 </html>

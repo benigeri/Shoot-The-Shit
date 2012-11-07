@@ -2,10 +2,14 @@ class MusingsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :set_timezone
 
+  before_filter :set_globals
+  def set_globals
+    @secondary_navbar = true
+  end
+
   def show
     @musing = Musing.find(params[:id])
     @comment = Comment.new
-    @secondary_navbar = true
     @back_button = true
     @back_link = '/'
   end
@@ -18,7 +22,8 @@ class MusingsController < ApplicationController
   end
 
   def create
-    # @musing = Musing.new(params[:musing])
+    @back_button = true
+    @back_link = '/'
     @musing = current_user.musings.create(params[:musing])
 
 
