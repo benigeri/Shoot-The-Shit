@@ -31,16 +31,16 @@
   <% if @secondary_navbar %>
     <%= render '/layouts/secondary_navbar' %>
   <% end %>
-
+  <% if @global_navbar %>
+    <%= render '/layouts/global_navbar' %>
+  <% end %>
   <div class="content">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
   </div>
 
-  <% if @global_navbar %>
-    <%= render '/layouts/global_navbar' %>
-  <% end %>
+
 
 </body>
 </html>

@@ -5,6 +5,7 @@ class MusingsController < ApplicationController
   before_filter :set_globals
   def set_globals
     @secondary_navbar = true
+    @global_navbar = true
   end
 
   def show

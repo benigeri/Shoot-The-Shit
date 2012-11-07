@@ -6,6 +6,7 @@ class MusingsListController < ApplicationController
     @secondary_navbar = true
     @pillbox_sorter = true
     @highlight_musings = true
+    @global_navbar = true
   end
 
   def recent
