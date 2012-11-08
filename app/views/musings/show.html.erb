@@ -5,15 +5,13 @@
     <h3>
       Votes: <%= @musing.votecount %>
       <% if current_user && current_user.votes.where(:musing_id => @musing.id, :up => true).present? %>
-        *
       <% else %>
-        <%= link_to "+", votes_path(:vote => {:musing_id => @musing.id, :up => true}), :method => 'post' %>
+        <%= link_to "Sick", votes_path(:vote => {:musing_id => @musing.id, :up => true}), { :class => "button-positive button", :method => 'post'} %>
       <% end %>
 
       <% if current_user && current_user.votes.where(:musing_id => @musing.id, :up => false).present? %>
-        *
       <% else %>
-        <%= link_to "-", votes_path(:vote => {:musing_id => @musing.id, :up => false}), :method => 'post' %>
+        <%= link_to "Shit", votes_path(:vote => {:musing_id => @musing.id, :up => false}), { :class => "button-negative button", :method => 'post'} %>
       <% end %>
     </h3>
 
