@@ -53,100 +53,115 @@
 
     targetBody.classList.add(className)
   });
-
-  window.addEventListener('click', function (e) { if (getTarget(e.target)) e.preventDefault(); });
+  // Tried to get rid of this to be able to use in browser, doesn't seem like an issue atm
+  //window.addEventListener('click', function (e) { if (getTarget(e.target)) e.preventDefault(); });
 }();
 
 
-    // The script prevents links from opening in mobile safari. https://gist.github.com/1042026
-    (function(document,navigator,standalone) {
-      // prevents links from apps from oppening in mobile safari
-      // this javascript must be the first script in your <head>
-      if ((standalone in navigator) && navigator[standalone]) {
-        var curnode, location=document.location, stop=/^(a|html)$/i;
-        document.addEventListener('click', function(e) {
-          curnode=e.target;
-          while (!(stop).test(curnode.nodeName)) {
-            curnode=curnode.parentNode;
-          }
-          // Condidions to do this only on links to your own app
-          // if you want all links, use if('href' in curnode) instead.
-          if(
-            'href' in curnode && // is a link
-            (chref=curnode.href).replace(location.href,'').indexOf('#') && // is not an anchor
-            ( !(/^[a-z\+\.\-]+:/i).test(chref) ||                       // either does not have a proper scheme (relative links)
-              chref.indexOf(location.protocol+'//'+location.host)===0 ) // or is in the same protocol and domain
-          ) {
-            e.preventDefault();
-            location.href = curnode.href;
-          }
-        },false);
+// The script prevents links from opening in mobile safari. https://gist.github.com/1042026
+(function(document,navigator,standalone) {
+  // prevents links from apps from oppening in mobile safari
+  // this javascript must be the first script in your <head>
+  if ((standalone in navigator) && navigator[standalone]) {
+    var curnode, location=document.location, stop=/^(a|html)$/i;
+    document.addEventListener('click', function(e) {
+      curnode=e.target;
+      while (!(stop).test(curnode.nodeName)) {
+        curnode=curnode.parentNode;
       }
-    })(document,window.navigator,'standalone');
+      // Condidions to do this only on links to your own app
+      // if you want all links, use if('href' in curnode) instead.
+      if(
+        'href' in curnode && // is a link
+        (chref=curnode.href).replace(location.href,'').indexOf('#') && // is not an anchor
+        ( !(/^[a-z\+\.\-]+:/i).test(chref) ||                       // either does not have a proper scheme (relative links)
+          chref.indexOf(location.protocol+'//'+location.host)===0 ) // or is in the same protocol and domain
+      ) {
+        e.preventDefault();
+        location.href = curnode.href;
+      }
+    },false);
+  }
+})(document,window.navigator,'standalone');
 
 //DEFINITIONS
-  var PASS_LOCATION_TO_CONTROLLER = 0;
-  var SET_LOCATION_DEF = 1;
-  var callbackSwitch;
+var PASS_LOCATION_TO_CONTROLLER = 0;
+var SET_LOCATION_DEF = 1;
+var callbackSwitch;
 
-  function toggleClass(elem) {
-    $("a.pillbox").removeClass("selected");
-    $(elem).addClass("selected");
+function toggleClass(elem) {
+  $("a.pillbox").removeClass("selected");
+  $(elem).addClass("selected");
+}
+function goBack(evt) {
+  evt.preventDefault();
+  window.history.back();
+}
+
+var locationObject = {
+  name : "",
+  longitude : "",
+  latitude : ""
+};
+
+function initLocation() {
+  if (navigator.geolocation && typeof (navigator.geolocation.getCurrentPosition) == "function") {
+    navigator.geolocation.getCurrentPosition(geoCodeCallback);
   }
-  function goBack(evt) {
-    evt.preventDefault();
-    window.history.back();
-  }
+}
 
-  var locationObject = {
-    name : "",
-    longitude : "",
-    latitude : ""
-  };
+function geoCodeCallback(position) {
+  locationObject.longitude = position.coords.longitude;
+  locationObject.latitude = position.coords.latitude;
+  var latLng = new google.maps.LatLng(locationObject.latitude, locationObject.longitude);
+  var coder = new google.maps.Geocoder();
+  coder.geocode({ 'latLng': latLng }, showLocaleCallback);
+}
 
-  function initLocation() {
-    if (navigator.geolocation && typeof (navigator.geolocation.getCurrentPosition) == "function") {
-      navigator.geolocation.getCurrentPosition(geoCodeCallback);
-    }
-  }
-
-  function geoCodeCallback(position) {
-    locationObject.longitude = position.coords.longitude;
-    locationObject.latitude = position.coords.latitude;
-    var latLng = new google.maps.LatLng(locationObject.latitude, locationObject.longitude);
-    var coder = new google.maps.Geocoder();
-    coder.geocode({ 'latLng': latLng }, showLocaleCallback);
-  }
-
-  function showLocaleCallback(results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
-      var res = results[0];
-      for (var i = 0; i < res.address_components.length; i++) {
-        var type = res.address_components[i].types[0];
-        if (type == "subpremise" || type == "premise" || type == "neighborhood" || type == "sublocality" || type == "locality") {
-          locationObject.name = res.address_components[i].short_name;
-          finalCallback(locationObject);
-          return;
-        }
+function showLocaleCallback(results, status) {
+  if (status == google.maps.GeocoderStatus.OK) {
+    var res = results[0];
+    for (var i = 0; i < res.address_components.length; i++) {
+      var type = res.address_components[i].types[0];
+      if (type == "subpremise" || type == "premise" || type == "neighborhood" || type == "sublocality" || type == "locality") {
+        locationObject.name = res.address_components[i].short_name;
+        finalCallback(locationObject);
+        return;
       }
     }
   }
-
-  function finalCallback(object){
-    switch(callbackSwitch){
-      case 0:
-        passLocationToController(object);
-        break;
-      case 1:
-        setLocation(object);
-        break;
 }
+
+function finalCallback(object){
+  switch(callbackSwitch){
+    case 0:
+      passLocationToController(object);
+      break;
+    case 1:
+      setLocation(object);
+      break;
   }
+}
 
 
-  function setLocation(object) {
-    var form = document.getElementById("new_musing");
-    form.musing_latitude.value = object.latitude;
-    form.musing_longitude.value = object.longitude;
-    form.musing_city.value = object.name;
+function setLocation(object) {
+  var form = document.getElementById("new_musing");
+  form.musing_latitude.value = object.latitude;
+  form.musing_longitude.value = object.longitude;
+  form.musing_city.value = object.name;
+  var locationButton = document.getElementById("locationButton");
+  locationButton.innerText = "Clear location";
+  locationButton.className = "button-negative button-block"
+  locationButton.onclick = clearLocation;
+}
+
+function clearLocation() {
+  var form = document.getElementById("new_musing");
+  form.musing_latitude.value = "";
+  form.musing_longitude.value = "";
+  form.musing_city.value = "";
+  var locationButton = document.getElementById("locationButton");
+  locationButton.innerText = "Add location";
+  locationButton.className = "button-block"
+  locationButton.onclick = initLocation;
 }
