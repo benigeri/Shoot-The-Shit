@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def set_globals
     @secondary_navbar = true
-    @global_navbar
+    @global_navbar = true
   end
 
   def show

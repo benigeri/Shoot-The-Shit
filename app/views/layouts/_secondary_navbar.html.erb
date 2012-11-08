@@ -1,15 +1,7 @@
 <!-- Not in js assets because requires erb to generat link -->
  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
  <!-- This is not really save, change so it sends by post -->
- <script type="text/javascript">
-  function passLocationToController(object) {
-        var url = "<%= url_for(:action => 'local', :controller => 'musings_list') %>";
-        url += "?locationName=" + object.name;
-        url += "&locationLatitude=" + object.latitude;
-        url += "&locationLongitude=" + object.longitude;
-        window.location = url;
-  }
-</script>
+
 <header class="bar-title">
   <% if @back_button %>
     <% if @back_link %>
@@ -20,6 +12,15 @@
   <% end %>
   <!-- <h1 class="title">Title</h1> -->
   <% if @pillbox_sorter  %>
+    <script type="text/javascript">
+      function passLocationToController(object) {
+            var url = "<%= url_for(:action => 'local', :controller => 'musings_list') %>";
+            url += "?locationName=" + object.name;
+            url += "&locationLatitude=" + object.latitude;
+            url += "&locationLongitude=" + object.longitude;
+            window.location = url;
+      }
+    </script>
     <ul class="segmented-controller">
       <li class="<%= ((@sort == "popular") ? "active" : nil) %>">
         <%= link_to "Popular", url_for(:action => 'popular', :controller => 'musings_list') %>
