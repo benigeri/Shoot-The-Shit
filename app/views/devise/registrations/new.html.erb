@@ -17,7 +17,7 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.submit "Sign up" %></div>
+  <div><%= link_to_function "Sign up", "document.getElementById('new_user').submit();", :class => "button-positive button-block" %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>
