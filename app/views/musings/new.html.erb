@@ -34,10 +34,10 @@
     <%= f.text_field :city %>
   </div>
   <div class="locationButton">
-    <%= link_to_function "Add location", "callbackSwitch = SET_LOCATION_DEF; initLocation();", :class => "button" %>
+    <%= link_to_function "Add location", "callbackSwitch = SET_LOCATION_DEF; initLocation();", :class => "button-block" %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= link_to_function "Add new musing", "document.getElementById('new_musing').submit();", :class => "button-positive button-block" %>
   </div>
 <% end %>
