@@ -34,6 +34,10 @@
     </ul>
     <%= link_to "New", new_musing_path, :class => "button" %>
   <% end %>
+  <% if @chat_view %>
+    <h1 class="title">Shit Chat</h1>
+    <%= link_to "New Person", '/chat/chat', :class => "button new_person_button" %>
+  <% end %>
 </header>
 
 

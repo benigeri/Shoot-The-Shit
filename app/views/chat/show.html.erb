@@ -1,11 +1,9 @@
-<h1>Shit Chat</h1>
-
 <div id="conversation">
-Searching...
+    <div class="searchBox">Searching...</div>
 </div>
 
 <input type="text" id="chatMessage"></input>
-<button id="sendChat">Send</button>
+<button id="sendChat" class="block-button">Send</button>
 
 <!-- backend-y stuff below -->
 <div pub-key="pub-11b5d2e6-425f-477a-ad20-9890c72cb283" sub-key="sub-17443687-2a05-11e2-8a20-7d0e10df7bde" ssl="off" origin="pubsub.pubnub.com" id="pubnub"></div>
@@ -41,7 +39,7 @@ function startChat(theirId) {
                 document.location.reload(true);
             }
             else {
-                $("#conversation").append("<div class='theirMessage'>Them: " + message + "</div>");
+                $("#conversation").append("<div class='message theirMessage'>" + message + "</div>");
             }
         }
     });
@@ -64,7 +62,7 @@ function sendChat(msg) {
         channel : theirUuid,
         message : msg
     });
-    $("#conversation").append("<div class='myMessage'>" + msg + "</div>");
+    $("#conversation").append("<div class='message myMessage'>" + msg + "</div>");
 }
 
 function endChat() {
@@ -119,7 +117,8 @@ function searchForChat() {
     // stop searching after 10 seconds
     stopSearchingTimeout = window.setTimeout(function() {
         stopSearching();
-        alert("Unable to connect to user. Please refresh the page and try again.")
+        alert("Unable to connect to user (not enough users are online). Trying again...");
+        document.location.reload(true);
     }, 10000);
 }
 
@@ -133,6 +132,11 @@ $("button#sendChat").bind("click", function() {
     message = $("#chatMessage").val();
     $("chatMessage").val("");
     sendChat(message);
+});
+$("a.new_person_button").bind("click", function() {
+    if (chatting) {
+        endChat();
+    }
 });
 
 // let's go!

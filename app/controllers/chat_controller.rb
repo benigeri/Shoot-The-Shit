@@ -12,5 +12,8 @@ class ChatController < ApplicationController
   end
 
   def show
+    @chat_view = true
+    @back_button = true
+    @back_link = "/chat"
   end
 end
