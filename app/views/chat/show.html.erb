@@ -35,7 +35,7 @@ function startChat(theirId) {
 
         callback   : function(message) {
             // check for control messages first
-            if (message == "LEAVE " + theirUuid) { // they bailed
+            if (message.indexOf("LEAVE") === 0) { // they bailed
                 alert("User disconnected from chat.");
                 endChat();
                 document.location.reload(true);
