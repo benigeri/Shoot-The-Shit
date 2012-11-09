@@ -130,7 +130,7 @@ function stopSearching() {
 // event handlers
 $("button#sendChat").bind("click", function() {
     message = $("#chatMessage").val();
-    $("chatMessage").val("");
+    $("#chatMessage").val("");
     sendChat(message);
 });
 $("a.new_person_button").bind("click", function() {
