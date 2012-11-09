@@ -1,0 +1,140 @@
+<h1>Shit Chat</h1>
+
+<div id="conversation">
+Searching...
+</div>
+
+<input type="text" id="chatMessage"></input>
+<button id="sendChat">Send</button>
+
+<!-- backend-y stuff below -->
+<div pub-key="pub-11b5d2e6-425f-477a-ad20-9890c72cb283" sub-key="sub-17443687-2a05-11e2-8a20-7d0e10df7bde" ssl="off" origin="pubsub.pubnub.com" id="pubnub"></div>
+<script src="http://cdn.pubnub.com/pubnub-3.3.min.js"></script>
+<script>
+// global data
+// uuid from http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript
+var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+    return v.toString(16);
+});
+var chatting = false;
+var theirUuid = "";
+
+var waitingForAckFrom = "";
+var stopSearchingTimeout = null;
+
+function startChat(theirId) {
+    // prepare globals
+    chatting = true;
+    theirUuid = theirId;
+    $("#conversation").html("");
+
+    PUBNUB.subscribe({ // subscribe to your own channel
+        channel    : uuid,
+        restore    : false,
+
+        callback   : function(message) {
+            // check for control messages first
+            if (message == "LEAVE " + theirUuid) { // they bailed
+                alert("User disconnected from chat.");
+                endChat();
+                document.location.reload(true);
+            }
+            else {
+                $("#conversation").append("<div class='theirMessage'>Them: " + message + "</div>");
+            }
+        }
+    });
+
+    PUBNUB.subscribe({ // subscribe to their channel
+        channel    : theirUuid,
+        restore    : false,
+
+        disconnect : function() {
+            endChat();
+        },
+        callback   : function() {
+
+        }
+    });
+}
+
+function sendChat(msg) {
+    PUBNUB.publish({
+        channel : theirUuid,
+        message : msg
+    });
+    $("#conversation").append("<div class='myMessage'>" + msg + "</div>");
+}
+
+function endChat() {
+    // notify other user that you are leaving
+    PUBNUB.publish({
+        channel : theirUuid,
+        message : "LEAVE " + uuid
+    });
+
+    // leave
+    PUBNUB.unsubscribe({ channel : theirUuid });
+    PUBNUB.unsubscribe({ channel : uuid });
+}
+
+function searchForChat() {
+    PUBNUB.subscribe({
+        channel    : "connections",
+        restore    : false,
+
+        callback   : function(message) {
+            message = message.split(" ");
+            if (message[0] == "STARTCHAT" && message[1] == uuid) { // someone is starting a chat with us
+                PUBNUB.publish({
+                    channel : "connections",
+                    message : "ACK " + message[2] + " " + uuid // ack them and start the chat
+                });
+                stopSearching();
+                startChat(message[2]);
+            }
+            else if (message[0] == "ONLINE" && waitingForAckFrom == "" && message[1] !== uuid) {
+                // let's try to start a chat with them
+                PUBNUB.publish({
+                    channel : "connections",
+                    message : "STARTCHAT " + message[1] + " " + uuid
+                });
+                waitingForAckFrom = message[1];
+            }
+            else if (message[0] == "ACK" && message[1] == uuid && message[2] == waitingForAckFrom) {
+                // they acknowledged us starting a chat with them. Go!
+                stopSearching();
+                startChat(message[2]);
+            }
+        },
+        connect    : function() {
+            PUBNUB.publish({
+                channel : "connections",
+                message : "ONLINE " + uuid
+            });
+        }
+    })
+
+    // stop searching after 10 seconds
+    stopSearchingTimeout = window.setTimeout(function() {
+        stopSearching();
+        alert("Unable to connect to user. Please refresh the page and try again.")
+    }, 10000);
+}
+
+function stopSearching() {
+    clearTimeout(stopSearchingTimeout);
+    PUBNUB.unsubscribe({ channel : 'connections' });
+}
+
+// event handlers
+$("button#sendChat").bind("click", function() {
+    message = $("#chatMessage").val();
+    $("chatMessage").val("");
+    sendChat(message);
+});
+
+// let's go!
+searchForChat();
+</script>
