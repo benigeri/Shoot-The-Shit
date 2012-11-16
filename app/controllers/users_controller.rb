@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def set_globals
     @secondary_navbar = true
     @global_navbar = true
+    @user_title = true
   end
 
   def show

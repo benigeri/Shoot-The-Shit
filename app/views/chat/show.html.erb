@@ -14,8 +14,12 @@
     </div>
 </div>
 
-<input type="text" id="chatMessage"></input>
-<button id="sendChat" class="block-button">Send</button>
+<div class="comment_input bar-tab">
+    <div class="comment_input_wrapper">
+        <input type="text" id="chatMessage"></input>
+    </div>
+    <a id="sendChat" class="post block-button">Send</a>
+</div>
 
 <!-- backend-y stuff below -->
 <div pub-key="pub-11b5d2e6-425f-477a-ad20-9890c72cb283" sub-key="sub-17443687-2a05-11e2-8a20-7d0e10df7bde" ssl="off" origin="pubsub.pubnub.com" id="pubnub"></div>
@@ -28,6 +32,7 @@ var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
     return v.toString(16);
 });
 var chatting = false;
+var testing = false;
 var theirUuid = "";
 
 var waitingForAckFrom = "";
@@ -70,11 +75,16 @@ function startChat(theirId) {
 }
 
 function sendChat(msg) {
-    PUBNUB.publish({
-        channel : theirUuid,
-        message : msg
-    });
-    $("#conversation").append("<div class='message myMessage'>" + msg + "</div>");
+    if (msg.length > 0) {
+        PUBNUB.publish({
+            channel : theirUuid,
+            message : msg
+        });
+        $("#conversation").append("<div class='message myMessage'>" + msg + "</div>");
+        if (testing) {
+            $("#conversation").append("<div class='message theirMessage'>" + msg + "</div>");
+        }
+    }  
 }
 
 function endChat() {
@@ -126,7 +136,7 @@ function searchForChat() {
         }
     })
 
-    // stop searching after 10 seconds
+    // stop searching after 45 seconds
     stopSearchingTimeout = window.setTimeout(function() {
         stopSearching();
         alert("Unable to connect to user (not enough users are online). Trying again...");
@@ -140,7 +150,7 @@ function stopSearching() {
 }
 
 // event handlers
-$("button#sendChat").bind("click", function() {
+$("#sendChat").bind("click", function() {
     message = $("#chatMessage").val();
     $("#chatMessage").val("");
     sendChat(message);
@@ -153,4 +163,14 @@ $("a.new_person_button").bind("click", function() {
 
 // let's go!
 searchForChat();
+
+// for testing purposes only, in user testing after 5 seconds connect to echo bot
+window.setTimeout(function() {
+    if (!chatting) {
+        stopSearching();
+        startChat("asdf");
+        testing = true;
+        alert("Began chat with test user because nobody is online");
+    }
+}, 3000);
 </script>

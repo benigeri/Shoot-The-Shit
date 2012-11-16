@@ -15,3 +15,21 @@ div.commentsTitle {
   font-size: 22px;
   line-height: 26px;
 }*/
+
+.comment_input {
+  display: inline-block;
+  height: 90%;
+  margin-top: -12px;
+}
+
+div.comment_actions {
+  display: inline-block;
+  width: 13%;
+  height: 100%;
+}
+
+a.post_comment {
+  font-size: 13px;
+  height: 60%;
+  margin-top: -10px;
+}

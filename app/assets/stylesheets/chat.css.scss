@@ -1,5 +1,5 @@
 div#conversation {
-	
+	padding-bottom: 45px;
 }
 
 p#searchingText {
@@ -10,6 +10,22 @@ p#searchingText {
 div#floatingBarsG {
 	margin: auto;
 	margin-bottom: 40px;
+}
+
+div.comment_input_wrapper {
+  display: inline-block;
+  width: 80%;
+}
+
+input#chatMessage {
+  display: inline-block;
+}
+
+a.post {
+  width: 15%;
+  height: 60%;
+  font-size: 20px;
+  display: inline-block;
 }
 
 div.message {
@@ -25,9 +41,10 @@ div.message {
 }
 
 div.theirMessage {
-  margin-left: -18px;
+  margin-left: -15px;
+  background: lighten(#c7fdb5, 10);
 }
 
 div.myMessage {
-  margin-left: 18px;
+  margin-left: 15px;
 }
