@@ -76,10 +76,12 @@ function startChat(theirId) {
 
 function sendChat(msg) {
     if (msg.length > 0) {
-        PUBNUB.publish({
-            channel : theirUuid,
-            message : msg
-        });
+        if (!testing) {
+            PUBNUB.publish({
+                channel : theirUuid,
+                message : msg
+            });
+        }
         $("#conversation").append("<div class='message myMessage'>" + msg + "</div>");
         if (testing) {
             $("#conversation").append("<div class='message theirMessage'>" + msg + "</div>");
@@ -172,5 +174,5 @@ window.setTimeout(function() {
         testing = true;
         alert("Began chat with test user because nobody is online");
     }
-}, 3000);
+}, 5000);
 </script>
