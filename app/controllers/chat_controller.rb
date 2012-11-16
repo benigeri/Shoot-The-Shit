@@ -5,10 +5,11 @@ class ChatController < ApplicationController
   def set_globals
     @secondary_navbar = true
     @highlight_chat = true
-    @global_navbar = true
+    @chat_title = true
   end
 
   def index
+    @global_navbar = true
   end
 
   def show

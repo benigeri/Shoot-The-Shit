@@ -58,17 +58,19 @@
         </ul>
       </div>
     <% end %>
+  </div>
+</div>
 
-    <div class="field">
+<div class="bar-tab">
+      <div class="field comment_input_wrapper">
 
       <%#= f.label :content %><br />
-      <%= f.text_area :content, :placeholder => "Add a comment" %>
+      <%= f.text_field :content, :class => "comment_input", :placeholder => "Add a comment" %>
       <%= f.hidden_field :musing_id, :value => @musing.id %>
 
     </div>
-    <div class="actions">
-      <%= link_to_function "Add a comment", "document.getElementById('new_comment').submit();", :class => "button-positive button-block" %>
+    <div class="actions comment_actions">
+      <%= link_to_function "Post", "document.getElementById('new_comment').submit();", :class => "button-positive block-button post_comment" %>
     </div>
-  <% end %>
-  </div>
 </div>
+<% end %>

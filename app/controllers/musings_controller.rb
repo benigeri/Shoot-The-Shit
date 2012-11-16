@@ -5,7 +5,6 @@ class MusingsController < ApplicationController
   before_filter :set_globals
   def set_globals
     @secondary_navbar = true
-    @global_navbar = true
   end
 
   def show
@@ -13,12 +12,14 @@ class MusingsController < ApplicationController
     @comment = Comment.new
     @back_button = true
     @back_link = '/'
+    @show_musing_title = true
   end
 
   def new
     @musing = Musing.new
     @secondary_navbar = true
     @back_button = true
+    @new_musing_title = true
     @back_link = '/'
   end
 

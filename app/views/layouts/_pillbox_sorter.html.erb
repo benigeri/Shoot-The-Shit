@@ -1,0 +1,22 @@
+<% if @pillbox_sorter  %>
+    <script type="text/javascript">
+      function passLocationToController(object) {
+            var url = "<%= url_for(:action => 'local', :controller => 'musings_list') %>";
+            url += "?locationName=" + object.name;
+            url += "&locationLatitude=" + object.latitude;
+            url += "&locationLongitude=" + object.longitude;
+            window.location = url;
+      }
+    </script>
+    <ul class="segmented-controller">
+      <li class="<%= ((@sort == "popular") ? "active" : nil) %>">
+        <%= link_to "Popular", url_for(:action => 'popular', :controller => 'musings_list') %>
+      </li>
+      <li class="<%= ((@sort == "recent") ? "active" : nil) %>">
+        <%= link_to "Recent", url_for(:action => 'recent', :controller => 'musings_list') %>
+      </li>
+      <li class="<%= ((@sort == "local") ? "active" : nil) %>">
+        <%= link_to_function "Local", "callbackSwitch = PASS_LOCATION_TO_CONTROLLER; initLocation();" %>
+      </li>
+    </ul>
+<% end %>
