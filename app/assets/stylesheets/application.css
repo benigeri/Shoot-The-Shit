@@ -19,7 +19,6 @@
 /* other styles */
 
 body {
-  background: #F4F4F4;
   -webkit-text-size-adjust: none;
   font-family: "Helvetica Neue";
   padding-top: 33px;
@@ -28,6 +27,14 @@ body {
   height: 100% !important;
 }
 
+body.landingPage {
+  background-size: 100%;
+  background: url(background.png) no-repeat;
+}
+
+body.landingPage div.content {
+  margin-top: 40px;
+}
 a {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }

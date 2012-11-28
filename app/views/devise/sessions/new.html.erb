@@ -1,12 +1,12 @@
 <script src="//cdn.optimizely.com/js/141960336.js"></script>
-<h2>Sign in</h2>
+<script type="text/javascript">
+  document.body.classList.add("landingPage");
+</script>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+  <div><%= f.email_field :email, :placeholder => "Email Address" %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <div><%= f.password_field :password, :placeholder => "Password" %></div>
 
   <% if devise_mapping.rememberable? -%>
     <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>

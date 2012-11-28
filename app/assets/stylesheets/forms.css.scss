@@ -1,0 +1,25 @@
+form.new_user {
+  input {
+    background: rgba(0,0,0,0.5);
+    border-radius: 0;
+    border: 0px;
+    box-shadow: none;
+    color: #FFF;
+  }
+
+  input:focus {
+    outline: none;
+    background: rgba(0,0,0,0.7);
+  }
+
+}
+
+.switchForm {
+  text-align: right;
+  color: #FFF;
+  a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #FFF;
+  }
+}
