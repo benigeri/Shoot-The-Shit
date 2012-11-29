@@ -7,7 +7,7 @@
     <% if @back_link %>
       <%= link_to "<", @back_link, :class => "button backButton" %>
     <% else %>
-      <a href="#" onclick="goBack(event);" class="button-prev">back</a>
+      <a href="#" onclick="goBack(event);" class="button backButton"><</a>
     <% end %>
   <% end %>
   <!-- <h1 class="title">Title</h1> -->
@@ -29,5 +29,8 @@
   <% end %>
   <% if @show_musing_title %>
     <h1 class="title"><%= @title %></h1>
+  <% end %>
+  <% if @edit_profile %>
+    <h1 class="title">Edit your profile</h1>
   <% end %>
 </header>

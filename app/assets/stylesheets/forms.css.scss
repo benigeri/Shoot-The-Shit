@@ -120,7 +120,6 @@ div.greenFormButton a:active {
 }
 
 
-
 form.new_musing, form.edit_user {
   input, textarea {
     background: rgba(0,0,0,0.7);
@@ -135,4 +134,11 @@ form.new_musing, form.edit_user {
     outline: none;
     background: rgba(0,0,0,0.9);
   }
+}
+
+.heading {
+  color: #AAAAA9;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 26px;
 }

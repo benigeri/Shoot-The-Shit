@@ -25,8 +25,8 @@
     </div>
   <% end %>
   <% if (@user == current_user) %>
-    <%= link_to "Edit Profile", edit_user_registration_path, :class => "button-block" %>
+    <%= link_to "Edit Profile", edit_user_registration_path, :class => "button-block grey" %>
     <%#= link_to 'Sign Out1', destroy_user_session_path, :method => 'delete' %>
-    <%= link_to "Logout", logout_path, :class => "button-negative button-block" %>
+    <%= link_to "Logout", logout_path, :class => "button-block grey" %>
   <% end %>
 </div>

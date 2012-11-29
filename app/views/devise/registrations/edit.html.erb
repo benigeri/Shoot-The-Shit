@@ -1,39 +1,30 @@
 <% @global_navbar = true %>
 <% @secondary_navbar = true %>
 <% @back_button = true %>
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+<% @edit_profile = true %>
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :value => current_user.email %></div>
+  <div><%= f.email_field :email, :value => current_user.email, :placeholder => "Email" %></div>
 
-  <div><%= f.label :name %><br />
-  <%= f.text_field :name, :value => current_user.name %></div>
+  <div><%= f.text_field :name, :value => current_user.name, :placeholder => "Name" %></div>
 
-  <div><%= f.label :username %><br />
-  <%= f.text_field :username, :value => current_user.username %></div>
+  <div><%= f.text_field :username, :value => current_user.username, :placeholder => "Username" %></div>
 
-  <div><%= f.label :fb_profile %><br />
-  <%= f.text_field :fb_profile, :value => current_user.fb_profile %></div>
+  <div><%= f.text_field :fb_profile, :value => current_user.fb_profile, :placeholder => "Facebook Profile" %></div>
 
-  <div><%= f.label :twitter_profile %><br />
-  <%= f.text_field :twitter_profile, :value => current_user.twitter_profile %></div>
+  <div><%= f.text_field :twitter_profile, :value => current_user.twitter_profile, :placeholder => "Twitter Profile" %></div>
 
-  <div><%= f.label :bio %> <br />
-  <%= f.text_area :bio, :value => current_user.bio %></div>
+  <div><%= f.text_area :bio, :value => current_user.bio, :placeholder => "Tell us a bit about yourself..." %></div>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+  <div><div class="heading">If you want to change your password, enter a new password and confirm it.</div>
+  <%= f.password_field :password, :autocomplete => "off", :placeholder => "New password" %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <div><%= f.password_field :password_confirmation, :placeholder => "Confirm new password" %></div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
+  <div><div class="heading">Type in your current password to save the changes.</div><%= f.password_field :current_password, :placeholder => "Current password" %></div>
 
-  <div><%= link_to_function "Update account", "document.getElementById('edit_user').submit();", :class => "button-positive button-block" %></div>
+  <div><%= link_to_function "Update account", "document.getElementById('edit_user').submit();", :class => "button-block green" %></div>
 <% end %>
-<p><%= link_to "Cancel my account", registration_path(resource_name), {:data => { :confirm => "Are you sure?"}, :method => :delete, :class => "button-negative button-block"} %></p>
+<p><%= link_to "Cancel my account", registration_path(resource_name), {:data => { :confirm => "Are you sure?"}, :method => :delete, :class => "button-block grey"} %></p>
 
