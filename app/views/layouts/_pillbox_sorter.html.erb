@@ -2,9 +2,9 @@
     <script type="text/javascript">
       function passLocationToController(object) {
             var url = "<%= url_for(:action => 'local', :controller => 'musings_list') %>";
-            url += "?locationName=" + object.name;
-            url += "&locationLatitude=" + object.latitude;
-            url += "&locationLongitude=" + object.longitude;
+            url += "?locationName=" + "Stanford";//object.name;
+            url += "&locationLatitude=" + "37.41960923882351";//object.latitude;
+            url += "&locationLongitude=" + "-122.1668823388235";//object.longitude;
             window.location = url;
       }
     </script>

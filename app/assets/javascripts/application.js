@@ -105,9 +105,16 @@ var locationObject = {
 };
 
 function initLocation() {
-  if (navigator.geolocation && typeof (navigator.geolocation.getCurrentPosition) == "function") {
-    navigator.geolocation.getCurrentPosition(geoCodeCallback);
+  var i = 0;
+  if(callbackSwitch == 1) {
+    setLocation();
+  } else if (callbackSwitch == 0){
+    passLocationToController(i);
   }
+
+  // if (navigator.geolocation && typeof (navigator.geolocation.getCurrentPosition) == "function") {
+  //   navigator.geolocation.getCurrentPosition(geoCodeCallback);
+  // }
 }
 
 function geoCodeCallback(position) {
@@ -145,9 +152,16 @@ function finalCallback(object){
 
 function setLocation(object) {
   var form = document.getElementById("new_musing");
-  form.musing_latitude.value = object.latitude;
-  form.musing_longitude.value = object.longitude;
-  form.musing_city.value = object.name;
+  // form.musing_latitude.value = object.latitude;
+  // form.musing_longitude.value = object.longitude;
+  // form.musing_city.value = object.name;
+  // var locationButton = document.getElementById("locationButton");
+  // locationButton.innerText = "Clear location";
+  // locationButton.className = "button-negative button-block"
+  // locationButton.onclick = clearLocation;
+  form.musing_latitude.value = "37.41960923882351";
+  form.musing_longitude.value = "-122.1668823388235";
+  form.musing_city.value = "Stanford";
   var locationButton = document.getElementById("locationButton");
   locationButton.innerText = "Clear location";
   locationButton.className = "button-negative button-block"

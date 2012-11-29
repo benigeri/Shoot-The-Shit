@@ -15,8 +15,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :placeholder => "Title" %>
   </div>
   <div class="field">
     <%= f.label :content %><br />
@@ -30,8 +29,7 @@
     <%= f.hidden_field :longitude %>
   </div>
   <div class="field">
-    <%= f.label :city %>
-    <%= f.text_field :city %>
+    <%= f.text_field :city, :placeholder => "City" %>
   </div>
   <div class="actions">
     <%= link_to_function "Add location", "callbackSwitch = SET_LOCATION_DEF; initLocation();", {:class => "button-block", :id => "locationButton"} %>
