@@ -33,6 +33,9 @@
   <% if @add_comment %>
     <%= render 'layouts/add_comment' %>
   <% end %>
+  <% if @show_chat_input %>
+    <%= render 'layouts/chat_input' %>
+  <% end %>
   <div class="content">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

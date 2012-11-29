@@ -16,5 +16,6 @@ class ChatController < ApplicationController
     @chat_view = true
     @back_button = true
     @back_link = "/chat"
+    @show_chat_input = true
   end
 end
