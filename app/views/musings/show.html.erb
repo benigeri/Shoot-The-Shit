@@ -1,47 +1,47 @@
-  <div class="musing">
-    <div class="title">
-      <%= @musing.title %>
-    </div>
-    <h3>
-      Votes: <%= @musing.votecount %>
-      <% if current_user && current_user.votes.where(:musing_id => @musing.id, :up => true).present? %>
-      <% else %>
-        <%= link_to "Sick", votes_path(:vote => {:musing_id => @musing.id, :up => true}), { :class => "button-positive button", :method => 'post'} %>
-      <% end %>
-
-      <% if current_user && current_user.votes.where(:musing_id => @musing.id, :up => false).present? %>
-      <% else %>
-        <%= link_to "Shit", votes_path(:vote => {:musing_id => @musing.id, :up => false}), { :class => "button-negative button", :method => 'post'} %>
-      <% end %>
-    </h3>
-
-    <div class="byline">
-      <span class="musingAuthor">
-         by <%= u = User.find(@musing.user_id); link_to u.username, u  %>
-      </span>
-      <span class="musingDate">
-        on <%= l @musing.created_at, :format => "%d/%m/%y at %I:%M %p" %>
-      </span>
-      <% if @musing.city? %>
-        <span class="musingCity">
-          near <%= @musing.city %>
-        </span>
-      <% end %>
-    </div>
-    <p>
-      <%= @musing.content %>
-    </p>
+<div class="showMusing">
+  <div class="voteCount"><%= @musing.votecount %></div>
+  <div class="musingAuthor">
+     by <%= u = User.find(@musing.user_id); link_to u.username, u  %>
   </div>
+  <div class="subline">
+    <span class="musingDate">
+      on <%= l @musing.created_at, :format => "%d/%m/%y at %I:%M %p" %>
+    </span>
+    <% if @musing.city? %>
+      <span class="musingCity">
+        near <%= @musing.city %>
+      </span>
+    <% end %>
+  </div>
+  <div class="musingContent">
+    <%= @musing.content %>
+  </div>
+  <div class="votes">
+    <% if current_user && current_user.votes.where(:musing_id => @musing.id, :up => true).present? %>
+    <div class="votePlaceholder sick">
+      Sick
+    </div>
+    <% else %>
+      <%= link_to "Sick", votes_path(:vote => {:musing_id => @musing.id, :up => true}), { :class => "button voteButton sick", :method => 'post'} %>
+    <% end %>
 
-  <h2 class="commentsTitle">Comments:</h2>
+    <% if current_user && current_user.votes.where(:musing_id => @musing.id, :up => false).present? %>
+    <div class="votePlaceholder shit">
+      Shit
+    </div>
+    <% else %>
+      <%= link_to "Shit", votes_path(:vote => {:musing_id => @musing.id, :up => false}), { :class => "button voteButton shit", :method => 'post'} %>
+    <% end %>
+  </div>
+</div>
+<div class="comments">
+  <h2 class="commentsTitle">Comments</h2>
     <% @musing.comments.each do |comment| %>
       <div class="comment">
-        <p>
-          <span>
-            <%= u = User.find(comment.user_id); link_to u.username, u %>:<br />
+          <span class="commentUsername">
+            <%= u = User.find(comment.user_id); link_to u.username, u %>: 
           </span>
           <%= comment.content %>
-        </p>
       </div>
     <% end %>
 
@@ -59,9 +59,9 @@
       </div>
     <% end %>
   </div>
-</div>
+  </div>
 
-<div class="bar-tab">
+  <div class="bar-tab">
       <div class="field comment_input_wrapper">
 
       <%#= f.label :content %><br />
@@ -72,5 +72,6 @@
     <div class="actions comment_actions">
       <%= link_to_function "Post", "document.getElementById('new_comment').submit();", :class => "button-positive block-button post_comment" %>
     </div>
+  </div>
+  <% end %>
 </div>
-<% end %>

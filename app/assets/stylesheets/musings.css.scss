@@ -6,7 +6,7 @@
   list-style: none;
   box-sizing: border-box;
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   background: #EFEFEF;
 }
 li.musing:last-child {
@@ -35,7 +35,7 @@ li.musing:last-child {
 }
 
 .musingContent {
-  color: #372F2D;
+  color: #5c5c5c;
   line-height: 18px;
   padding: 8px;
   font-weight: 400;
@@ -58,4 +58,84 @@ div.voteCount {
   text-align: center;
   color: #fdfdfd;
   line-height: 60px;
+}
+
+div.showMusing {
+  .musingAuthor {
+    font-weight: 400;
+    font-size: 32px;
+    a {
+      color: #41C23F;
+    }
+  }
+  .subline {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 23px;
+    margin-bottom: 10px;
+  }
+  .musingContent {
+    background: #E9E9E9;
+    padding: 10px;
+    font-weight: 300;
+    font-size: 16px;
+    color: #5c5c5c;
+  }
+  .votes {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  .voteButton, .votePlaceholder {
+    width: 48%;
+    padding: 10px 0px;
+    text-align: center;
+    display: block;
+    font-size: 24px;
+    line-height: 22px;
+    font-weight: 400;
+    color: #FFF;
+  }
+
+  .voteButton.sick {
+    background: #3AAE39;
+    float: right;
+  }
+
+  .voteButton.shit {
+    background: #2A2625;
+    float: left;
+  }
+
+  .votePlaceholder.sick {
+    background: #E9E9E9;
+    float: right;
+  }
+
+  .votePlaceholder.shit {
+    background: #E9E9E9;
+    float: left;
+  }
+}
+
+.comments {
+  margin-top: 10px;
+  color: #5c5c5c;
+
+  .commentsTitle {
+    color: #AAAAA9;
+    font-weight: 200;
+    font-size: 20px;
+  }
+  .comment {
+    margin-top: 10px;
+    padding: 10px;
+    background: #E9E9E9;
+    .commentUsername {
+      color: #41C23F;
+      a {
+        color: #41C23F;
+      }
+    }
+  }
 }

@@ -20,7 +20,7 @@
 
 body {
   -webkit-text-size-adjust: none;
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", Helvetica;
   padding-top: 33px;
   padding-bottom: 43px;
   width: 100% !important;

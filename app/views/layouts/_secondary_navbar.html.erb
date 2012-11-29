@@ -5,7 +5,7 @@
 <header class="bar-title">
   <% if @back_button %>
     <% if @back_link %>
-      <%= link_to "back", @back_link, :class => "button-prev" %>
+      <%= link_to "<", @back_link, :class => "button backButton" %>
     <% else %>
       <a href="#" onclick="goBack(event);" class="button-prev">back</a>
     <% end %>
@@ -28,6 +28,6 @@
     <h1 class="title">Create New Musing</h1>
   <% end %>
   <% if @show_musing_title %>
-    <h1 class="title">View Musing</h1>
+    <h1 class="title"><%= @title %></h1>
   <% end %>
 </header>
