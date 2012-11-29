@@ -5,71 +5,57 @@
 .musing {
   list-style: none;
   box-sizing: border-box;
-  border-radius: 3px;
-  border: 1px solid #DBDBDB;
-  padding: 10px;
   width: 100%;
   margin-bottom: 10px;
-  background: #FCFCFC;
-  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.2);
+  background: #EFEFEF;
 }
 li.musing:last-child {
   margin-bottom: 0px;
 }
 
-.newMusingButton {
-  display: block;
-  text-decoration: none;
-  box-sizing: border-box;
-  border-radius: 3px;
-  border-bottom: 1px solid #b34242;
-  border-top: 1px solid #f09090;
-  border-right: 1px solid #d95555;
-  border-left: 1px solid #d95555;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(234,99,99,1)), color-stop(43%,rgba(234,99,99,1)), color-stop(56%,rgba(230,85,85,1)), color-stop(100%,rgba(230,85,85,1)));
-  text-align: center;
-  color: white;
-  font-size: 22px;
-  line-height: 26px;
-  color: #FFFFFF;
-  text-shadow: 0px 1px 1px rgba(0,0,0, 0.3);
-  padding: 10px;
-  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.2);
-}
-
-.newMusingButton:active {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(230,85,85,1)), color-stop(43%,rgba(230,85,85,1)), color-stop(56%,rgba(234,99,99,1)), color-stop(100%,rgba(234,99,99,1)));
-  box-shadow: inset 0px 1px 2px 0px rgba(0,0,0,0.2);
-}
-
-.newMusingButton:hover {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(230,85,85,1)), color-stop(43%,rgba(230,85,85,1)), color-stop(56%,rgba(234,99,99,1)), color-stop(100%,rgba(234,99,99,1)));
-  box-shadow: inset 0px 1px 2px 0px rgba(0,0,0,0.2);
-}
-
-
 .musing .title {
-  color: #797979;
-  font-size: 22px;
-  line-height: 26px;
+  background: #2A2625;
+  padding: 8px 8px 0px 8px;
+  a {
+    color: #fdfdfd;
+    font-size: 22px;
+    line-height: 26px;
+  }
 }
-
 
 .musing .byline {
-  color: #B6B6B6;
+  padding: 0px 8px 5px 8px;
+  color: #ABAAAA;
+  background: #2A2625;
   font-size: 13px;
-  border-bottom: 1px solid #E7E7E7;
   line-height: 22px;
-    margin-bottom: 6px;
-
+  a {
+    color: #41C23F;
+  }
 }
 
 .musingContent {
-  color: #797979;
+  color: #372F2D;
   line-height: 18px;
+  padding: 8px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
 
 }
 
 div.add_comment {
   margin-bottom: 50px;
+}
+
+div.voteCount {
+  background: #3AAE39;
+  float: right;
+  font-size: 33px;
+  font-weight: 200;
+  height: 61px;
+  width: 61px;
+  text-align: center;
+  color: #fdfdfd;
+  line-height: 60px;
 }

@@ -3,6 +3,9 @@
   <% if !@musings.blank? %>
     <% @musings.each do |musing| %>
       <li class="musing">
+        <div class="voteCount">
+          <%= musing.votecount %>
+        </div>
         <div class="title">
           <%= link_to musing.title, musing %>
         </div>
