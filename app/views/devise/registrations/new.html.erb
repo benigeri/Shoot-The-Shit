@@ -6,15 +6,29 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.email_field :email,  :placeholder => "Email Address" %></div>
+  <div><div class="inputPicto emailPicto"></div><%= f.email_field :email,  :placeholder => "Email Address", :class => "landingFormField" %></div>
 
-  <div><%= f.text_field :username,  :placeholder => "Username" %></div>
+  <div><div class="inputPicto usernamePicto"></div><%= f.text_field :username,  :placeholder => "Username", :class => "landingFormField" %></div>
 
-  <div><%= f.password_field :password,  :placeholder => "Password" %></div>
+  <div><div class="inputPicto passwordPicto"></div><%= f.password_field :password,  :placeholder => "Password", :class => "landingFormField" %></div>
 
-  <div><%= f.password_field :password_confirmation,  :placeholder => "Confirm Password" %></div>
+  <div><div class="inputPicto passwordPicto"></div><%= f.password_field :password_confirmation,  :placeholder => "Confirm Password", :class => "landingFormField" %></div>
+  
+  <% if devise_mapping.rememberable? -%>
+    <div class="rememberWrapper"><div class="inputPicto rememberPicto"></div><%= f.check_box :remember_me, :class => "rememberCheckbox" %> <%= f.label :remember_me, :class => "rememberMeLabel" %></div>
+  <% end -%>
 
-  <div><%= link_to_function "Sign up", "document.getElementById('new_user').submit();", :class => "button-positive button-block" %></div>
+  <div class="greenFormButton"><%= link_to_function "Sign up", "document.getElementById('new_user').submit();" %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+<script type="text/javascript">
+  var inputs = document.getElementsByClassName("landingFormField");
+  for (var i = 0; i < inputs.length; i++) {
+    var input = inputs[i];
+    input.addEventListener("focusout", formEmptyCheck);
+  }
+  document.getElementsByClassName("rememberMeLabel")[0].addEventListener("click", toggleRemember);
+
+</script>

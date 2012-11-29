@@ -1,25 +1,120 @@
 form.new_user {
+  bottom: 25px;
+  position: fixed;
+  left: 9px;
+
   input {
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.6);
     border-radius: 0;
     border: 0px;
     box-shadow: none;
     color: #FFF;
+    padding-left: 50px;
   }
 
   input:focus {
     outline: none;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.8);
   }
-
+  div.inputPicto {
+    height: 40px;
+    width: 40px;
+    position: fixed;
+  }
 }
+input::-webkit-input-placeholder {
+  color: #BBB;
+  font-size: 15px;
+}
+
+div.emailPicto {
+  background: rgba(0,0,0,0.3) url(email_grey.png);
+}
+
+div.passwordPicto {
+  background: rgba(0,0,0,0.3) url(password_grey.png);
+}
+
+div.usernamePicto {
+  background: rgba(0,0,0,0.3) url(username_grey.png);
+}
+
+div.rememberPicto {
+  background: rgba(0,0,0,0.3) url(password_grey.png);
+  z-index: 10;
+}
+
+div.emailPicto.notEmpty {
+  background: rgba(0,0,0,0.3) url(email_white.png);
+}
+
+div.passwordPicto.notEmpty {
+  background: rgba(0,0,0,0.3) url(password_white.png);
+}
+
+div.usernamePicto.notEmpty {
+  background: rgba(0,0,0,0.3) url(username_white.png);
+}
+
+div.rememberPicto.notEmpty {
+  background: rgba(0,0,0,0.3) url(password_white.png);
+  z-index: 10;
+}
+
 
 .switchForm {
   text-align: right;
   color: #FFF;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+
   a {
     font-weight: bold;
     text-decoration: none;
     color: #FFF;
   }
+}
+.rememberWrapper {
+
+}
+.rememberCheckbox {
+  display: none;
+}
+
+.rememberCheckbox + label {
+  width: 35%;
+  color: #BBB;
+  background: rgba(0,0,0,0.6);
+  padding: 11px;
+  padding-left: 50px;
+  display: block;
+  position: fixed;
+  font-size: 15px;
+
+}
+
+.rememberCheckbox:checked + label {
+  color: white;
+}
+
+div.greenFormButton {
+  width: 40%;
+  margin-left: 60%;
+}
+
+div.greenFormButton a {
+  /*height: 40px;*/
+  display: block;
+  background: rgba(74,217,11,0.7);
+  text-decoration: none;
+  color: #FFF;
+  padding: 8px 0 9px;
+  margin-bottom: 10px;
+  font-size: 19px;
+  text-align: center;
+}
+
+a.greenFormButton:active {
+  background: rgba(74,217,11,0.85);
 }

@@ -165,3 +165,18 @@ function clearLocation() {
   locationButton.className = "button-block"
   locationButton.onclick = initLocation;
 }
+
+function formEmptyCheck() {
+  if(this.value.length > 0) {
+    var el = this.parentElement.firstChild;
+    $(el).addClass("notEmpty");
+  } else {
+    var el = this.parentElement.firstChild;
+    $(el).removeClass("notEmpty");
+  }
+}
+
+function toggleRemember() {
+  var el = this.parentElement.firstChild;
+  $(el).toggleClass("notEmpty");
+}
