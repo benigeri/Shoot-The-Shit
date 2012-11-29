@@ -13,7 +13,7 @@
   <!-- <h1 class="title">Title</h1> -->
   <% if @pillbox_sorter  %>
     <h1 class="title">Musings</h1>
-    <%= link_to "New", new_musing_path, :class => "button" %>
+    <%= link_to "+", new_musing_path, :class => "button newMusingLink" %>
   <% end %>
   <% if @chat_title %>
     <h1 class="title">Shit Chat</h1>

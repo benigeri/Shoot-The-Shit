@@ -204,11 +204,7 @@
     top: 0;
     display: -webkit-box;
     display: box;
-    background-color: #1eb0e9;
-    background-image: -webkit-linear-gradient(top, #1eb0e9 0, #109adc 100%);
-    background-image: linear-gradient(to bottom, #1eb0e9 0, #109adc 100%);
-    border-bottom: 1px solid #0e5895;
-    box-shadow: inset 0 1px 1px -1px rgba(255, 255, 255, .8);
+    background-color: #2A2625;
     -webkit-box-orient: horizontal;
             box-orient: horizontal;
   }
@@ -221,11 +217,10 @@
     display: block;
     width: 100%;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: lighter;
     line-height: 44px;
     color: #fff;
     text-align: center;
-    text-shadow: 0 -1px rgba(0, 0, 0, .5);
     white-space: nowrap;
   }
 
@@ -407,6 +402,22 @@
     box-shadow: inset 0 -3px 3px rgba(0, 0, 0, .2);
   }
 
+  .bar-title .newMusingLink {
+    color: white;
+    font-size: 55px;
+    line-height: 14px;
+    font-weight: lighter;
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  .bar-title .newMusingLink:active {
+    background: none;
+    border: none;
+    box-shadow: none;
+    color: #41C23F;
+  }
   /* Block buttons in any bar
   -------------------------------------------------- */
 
