@@ -444,7 +444,7 @@ div.comment_actions, div.chat_actions {
   font-size: 14px;
   line-height: 25px;
 }
-.bar-title.newMusingLink:active, .bar-title.backButton:active, .bar-title.new_person_button {
+.bar-title .newMusingLink:active, .bar-title .backButton:active, .bar-title .new_person_button:active {
   background: none;
   border: none;
   box-shadow: none;
@@ -844,13 +844,30 @@ select {
   padding: 11px 0 13px;
   margin-bottom: 10px;
   font-size: 16px;
+  color: #FFF;
+
+}
+.green {
+  background: rgba(74,217,11,1);
+}
+
+.grey {
+  background: #E9E9E9;
 }
 
 /* Active state for block level buttons */
 .button-block:active {
   padding: 12px 0;
+  color: #FFF;
+
+}
+.grey {
+  background: #C9C9C9;
 }
 
+.green:active {
+  background: rgba(74,217,11,0.8);
+}
 /* Counts in buttons
 -------------------------------------------------- */
 

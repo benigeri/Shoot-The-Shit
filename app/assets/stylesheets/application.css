@@ -38,7 +38,13 @@ body.landingPage div.content {
 a {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
+h2 {
+  color: #AAAAA9;
+  font-weight: 200;
+  font-size: 28px;
+  line-height: 45px;
 
+}
 .content {
   box-sizing: border-box;
   padding: 15px;

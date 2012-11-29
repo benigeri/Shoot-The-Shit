@@ -118,3 +118,21 @@ div.greenFormButton a {
 div.greenFormButton a:active {
   background: rgba(74,217,11,0.85);
 }
+
+
+
+form.new_musing, form.edit_user {
+  input, textarea {
+    background: rgba(0,0,0,0.7);
+    border-radius: 0;
+    border: 0px;
+    box-shadow: none;
+    color: #FFF;
+    padding: 10px;
+  }
+
+  input:focus, textarea:focus {
+    outline: none;
+    background: rgba(0,0,0,0.9);
+  }
+}

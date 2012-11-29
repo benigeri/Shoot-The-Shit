@@ -164,7 +164,7 @@ function setLocation(object) {
   form.musing_city.value = "Stanford";
   var locationButton = document.getElementById("locationButton");
   locationButton.innerText = "Clear location";
-  locationButton.className = "button-negative button-block"
+  locationButton.className = "button-block grey"
   locationButton.onclick = clearLocation;
 }
 
@@ -175,7 +175,7 @@ function clearLocation() {
   form.musing_city.value = "";
   var locationButton = document.getElementById("locationButton");
   locationButton.innerText = "Add location";
-  locationButton.className = "button-block"
+  locationButton.className = "button-block green"
   locationButton.onclick = initLocation;
 }
 

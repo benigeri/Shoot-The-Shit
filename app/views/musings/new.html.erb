@@ -18,7 +18,6 @@
     <%= f.text_field :title, :placeholder => "Title" %>
   </div>
   <div class="field">
-    <%= f.label :content %><br />
     <%= f.text_area :content, :rows => "5", :placeholder => "Type you musing here..." %>
   </div>
 
@@ -32,7 +31,7 @@
     <%= f.text_field :city, :placeholder => "City" %>
   </div>
   <div class="actions">
-    <%= link_to_function "Add location", "callbackSwitch = SET_LOCATION_DEF; initLocation();", {:class => "button-block", :id => "locationButton"} %>
-    <%= link_to_function "Add new musing", "document.getElementById('new_musing').submit();", :class => "button-positive button-block" %>
+    <%= link_to_function "Add location", "callbackSwitch = SET_LOCATION_DEF; initLocation();", {:class => "button-block green", :id => "locationButton"} %>
+    <%= link_to_function "Add new musing", "document.getElementById('new_musing').submit();", :class => "button-block green" %>
   </div>
 <% end %>
