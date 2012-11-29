@@ -30,6 +30,9 @@
   <% if @global_navbar %>
     <%= render '/layouts/global_navbar' %>
   <% end %>
+  <% if @add_comment %>
+    <%= render 'layouts/add_comment' %>
+  <% end %>
   <div class="content">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

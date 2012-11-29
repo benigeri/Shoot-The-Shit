@@ -44,34 +44,4 @@
           <%= comment.content %>
       </div>
     <% end %>
-
-  <div class="add_comment">
-  <%= form_for(@comment) do |f| %>
-    <% if @comment.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-
-        <ul>
-        <% @comment.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-  </div>
-  </div>
-
-  <div class="bar-tab">
-      <div class="field comment_input_wrapper">
-
-      <%#= f.label :content %><br />
-      <%= f.text_field :content, :class => "comment_input", :placeholder => "Add a comment" %>
-      <%= f.hidden_field :musing_id, :value => @musing.id %>
-
-    </div>
-    <div class="actions comment_actions">
-      <%= link_to_function "Post", "document.getElementById('new_comment').submit();", :class => "button-positive block-button post_comment" %>
-    </div>
-  </div>
-  <% end %>
 </div>

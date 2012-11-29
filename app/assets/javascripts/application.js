@@ -143,7 +143,6 @@ function finalCallback(object){
   }
 }
 
-
 function setLocation(object) {
   var form = document.getElementById("new_musing");
   form.musing_latitude.value = object.latitude;

@@ -14,6 +14,7 @@ class MusingsController < ApplicationController
     @back_link = '/'
     @title = @musing.title
     @show_musing_title = true
+    @add_comment = true
   end
 
   def new
