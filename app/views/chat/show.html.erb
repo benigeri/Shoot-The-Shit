@@ -145,10 +145,11 @@ function stopSearching() {
 }
 
 // event handlers
-$("#sendChat").bind("click", function() {
+$("#sendChat").bind("click", function(e) {
     message = $("#chatMessage").val();
     $("#chatMessage").val("");
     sendChat(message);
+    e.preventDefault();
 });
 $("a.new_person_button").bind("click", function() {
     if (chatting) {
@@ -167,5 +168,5 @@ window.setTimeout(function() {
         testing = true;
         alert("Began chat with test user because nobody is online");
     }
-}, 5000);
+}, 10000);
 </script>
